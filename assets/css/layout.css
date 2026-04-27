@@ -1,4 +1,5 @@
-nav {
+/* nav → 메인 index 에만 적용 */
+body:not(.commerce-page) nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -68,9 +69,8 @@ footer {
   border-top: 1px solid var(--border);
 }
 
-/* === a11y-portfolio 전용 레이아웃 === */
-
-/* hero — index.html의 전체화면 구조를 일반 섹션으로 override */
+/* === a11y === */
+/* 메인 index의 hero 전체화면 구조를 일반 섹션으로 override */
 .a11y-hero {
   min-height: unset;
   display: block;
