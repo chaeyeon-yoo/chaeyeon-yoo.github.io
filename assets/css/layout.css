@@ -1,0 +1,123 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: rgba(245, 244, 240, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 3rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 7rem 3rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.contact-section {
+  background: var(--accent);
+  padding: 5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--border);
+}
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* === a11y-portfolio 전용 레이아웃 === */
+
+/* hero — index.html의 전체화면 구조를 일반 섹션으로 override */
+.a11y-hero {
+  min-height: unset;
+  display: block;
+  padding: 8rem 3rem 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cases {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 3rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 3rem 6rem;
+}
+
+.back-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 3rem 5rem;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .a11y-hero {
+    padding: 7rem 1.5rem 3rem;
+  }
+  .cases {
+    padding: 3rem 1.5rem 4rem;
+  }
+  .ba-grid {
+    grid-template-columns: 1fr;
+  }
+  .summary-wrap {
+    padding: 3rem 1.5rem 4rem;
+  }
+  .back-section {
+    padding: 0 1.5rem 4rem;
+  }
+}
