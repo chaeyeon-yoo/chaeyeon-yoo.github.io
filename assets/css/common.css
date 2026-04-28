@@ -32,6 +32,8 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+body.custom-cursor {
   cursor: none;
 }
 .cursor {
