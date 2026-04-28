@@ -377,8 +377,16 @@
   .back-section {
     padding: 0 1.5rem 4rem;
   }
+  .case-header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
   .summary-table th:nth-child(3),
   .summary-table td:nth-child(3) {
+    display: none;
+  }
+  .summary-table th:nth-child(5),
+  .summary-table td:nth-child(5) {
     display: none;
   }
 }
