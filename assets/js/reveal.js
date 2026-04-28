@@ -12,18 +12,18 @@ reveals.forEach((el) => observer.observe(el));
 
 /* TOP BUTTON */
 const topBtn = document.getElementById("topBtn");
-const aboutSection = document.getElementById("about");
+const workSection = document.getElementById("work");
 
 if (topBtn) {
-  // 👉 1. 메인페이지 (about 섹션 존재할 때)
-  if (aboutSection) {
+  // 1. 메인 페이지 (section 으로 구분)
+  if (workSection) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             topBtn.classList.add("visible");
           } else {
-            const rect = aboutSection.getBoundingClientRect();
+            const rect = workSection.getBoundingClientRect();
             if (rect.top > 0) {
               topBtn.classList.remove("visible");
             }
@@ -33,11 +33,11 @@ if (topBtn) {
       { threshold: 0.1 },
     );
 
-    observer.observe(aboutSection);
+    observer.observe(workSection);
   }
-  // 👉 2. 상세페이지 (about 없을 때)
+  // 2. 프로젝트 페이지 (section id 없음)
   else {
-    const trigger = parseInt(topBtn.dataset.scrollTrigger) || 500;
+    const trigger = parseInt(topBtn.dataset.scrollTrigger) || 600; // 값이 없을 시 600
 
     window.addEventListener("scroll", () => {
       if (window.scrollY > trigger) {
@@ -48,7 +48,7 @@ if (topBtn) {
     });
   }
 
-  // 👉 클릭 이벤트는 공통 (한 번만)
+  // 클릭 이벤트 (공통)
   topBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
