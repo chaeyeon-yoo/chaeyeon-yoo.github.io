@@ -5,7 +5,7 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--color-text);
   text-decoration: none;
 }
 .nav-logo span {
@@ -18,7 +18,7 @@
 }
 .nav-list .nav-item a {
   font-size: 0.78rem;
-  color: var(--muted);
+  color: var(--color-muted);
   text-decoration: none;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -42,7 +42,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--text);
+  background: var(--color-text);
   transition: transform 0.3s, opacity 0.3s;
 }
 
@@ -125,7 +125,7 @@
   color: var(--accent);
 }
 .hero-title .line3 {
-  color: var(--muted);
+  color: var(--color-muted);
   font-weight: 400;
   font-size: 0.48em;
   text-transform: none;
@@ -140,16 +140,15 @@
   opacity: 0;
   animation: fadeUp 0.6s 0.6s forwards;
 }
-/* .hero-desc { font-size: 0.95rem; color: var(--muted); max-width: 420px; line-height: 1.75; font-weight: 300; } */
 .hero-desc {
   font-size: 0.95rem;
-  color: var(--muted);
+  color: var(--color-muted);
   max-width: 515px;
   line-height: 1.75;
   font-weight: 300;
 }
 .hero-desc strong {
-  color: var(--text);
+  color: var(--color-text);
   font-weight: 500;
 }
 .hero-cta {
@@ -173,7 +172,7 @@
 }
 .hero-cta:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--accent-bright);
+  box-shadow: 4px 4px 0 var(--accent-vivid);
 }
 
 /* section */
@@ -210,7 +209,7 @@
 }
 .section-desc {
   font-size: 0.92rem;
-  color: var(--muted);
+  color: var(--color-muted);
   max-width: 480px;
   line-height: 1.8;
   margin-bottom: 3.5rem;
@@ -221,7 +220,7 @@
 
 .about-card {
   background: #fff;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   padding: 2rem;
   position: relative;
   overflow: hidden;
@@ -241,7 +240,7 @@
   font-family: var(--font-display);
   font-size: 0.65rem;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: var(--color-muted);
   opacity: 0.5;
 }
 .about-card-icon {
@@ -255,11 +254,11 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: 0.6rem;
-  color: var(--text);
+  color: var(--color-text);
 }
 .about-card-desc {
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--color-muted);
   line-height: 1.7;
   font-weight: 300;
 }
@@ -283,14 +282,14 @@
   line-height: 1.4;
 }
 .about-card.wide .quote .hl {
-  color: var(--accent-bright);
+  color: var(--accent-vivid);
 }
 
 /* SKILLS */
 .skills-list {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   background: #fff;
 }
 .skill-row {
@@ -298,14 +297,14 @@
   align-items: center;
   /* gap: 2rem; */
   padding: 1.35rem 2rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
   transition: background 0.2s;
 }
 .skill-row:last-child {
   border-bottom: none;
 }
 .skill-row:hover {
-  background: var(--surface);
+  background: var(--color-surface);
 }
 .skill-row-name {
   font-family: var(--font-display);
@@ -314,14 +313,14 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   min-width: 210px;
-  color: var(--text);
+  color: var(--color-text);
   flex-shrink: 0;
 }
 
 /* .skill-row-bar {
   flex: 1;
   height: 2px;
-  background: var(--border);
+  background: var(--color-border);
   position: relative;
 }
 .skill-row-fill {
@@ -350,7 +349,7 @@
 } */
 .skill-row-tag {
   font-size: 0.72rem;
-  color: var(--muted);
+  color: var(--color-muted);
   min-width: 120px;
   /* text-align: right; */
   flex: 1;
@@ -363,7 +362,7 @@
 /* WORK */
 .work-card {
   background: #fff;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   padding: 3rem;
   position: relative;
   overflow: hidden;
@@ -414,7 +413,7 @@
   letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
   line-height: 1.1;
-  color: var(--text);
+  color: var(--color-text);
 }
 .work-subtitle {
   font-size: 0.85rem;
@@ -424,7 +423,7 @@
 }
 .work-desc {
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--color-muted);
   line-height: 1.8;
   margin-bottom: 2rem;
   font-weight: 300;
@@ -438,8 +437,8 @@
 .work-tag {
   font-size: 0.72rem;
   padding: 0.3rem 0.75rem;
-  border: 1px solid var(--border-strong);
-  color: var(--muted);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-muted);
   font-family: var(--font-display);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -452,7 +451,7 @@
 .work-pf-link-row {
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--color-border);
 }
 .work-pf-link {
   display: inline-flex;
@@ -460,8 +459,8 @@
   gap: 0.75rem;
   width: 100%;
   text-decoration: none;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   padding: 0.85rem 1.25rem;
   transition:
     border-color 0.2s,
@@ -476,7 +475,7 @@
 }
 .work-pf-link-text {
   font-size: 0.85rem;
-  color: var(--text);
+  color: var(--color-text);
   font-weight: 400;
   flex: 1;
 }
@@ -494,7 +493,7 @@
 /* PORTFOLIO */
 .pf-card {
   background: #fff;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   padding: 2rem;
   position: relative;
   transition:
@@ -512,7 +511,7 @@
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--color-muted);
   margin-bottom: 1.25rem;
 }
 .pf-icon {
@@ -526,12 +525,12 @@
   text-transform: uppercase;
   letter-spacing: 0.02em;
   margin-bottom: 0.6rem;
-  color: var(--text);
+  color: var(--color-text);
   line-height: 1.2;
 }
 .pf-desc {
   font-size: 0.83rem;
-  color: var(--muted);
+  color: var(--color-muted);
   line-height: 1.7;
   font-weight: 300;
   flex: 1;
@@ -554,7 +553,7 @@
   color: #c07a00;
 }
 .pf-status.optional {
-  color: var(--muted);
+  color: var(--color-muted);
 }
 .pf-status::before {
   content: "";
@@ -586,7 +585,7 @@
   flex-direction: row;
   gap: 2.5rem;
   align-items: center;
-  background: var(--surface);
+  background: var(--color-surface);
 }
 .pf-card.featured .pf-body {
   flex: 1;
@@ -638,7 +637,7 @@
   margin-bottom: 1.5rem;
 }
 .contact-big .hl {
-  color: var(--accent-bright);
+  color: var(--accent-vivid);
 }
 .contact-desc {
   font-size: 0.92rem;
@@ -690,7 +689,7 @@
 }
 .btn-primary:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--accent2);
+  box-shadow: 4px 4px 0 var(--accent-strong);
 }
 .btn-secondary {
   display: inline-flex;
@@ -739,7 +738,7 @@
     justify-content: flex-start;
     padding: 3rem 0 0 3rem;
     gap: 1.5rem;
-    background: var(--bg);
+    background: var(--color-bg);
     z-index: 99;
   }
 
@@ -838,7 +837,7 @@
   pointer-events: auto;
 }
 .top-btn:hover {
-  background: var(--accent2);
+  background: var(--accent-strong);
   transform: translateY(-2px);
 }
 .top-btn:focus-visible {
