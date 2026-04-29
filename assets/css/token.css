@@ -1,0 +1,26 @@
+:root {
+  /* 배경 */
+  --color-bg:      #f5f4f0;
+  --color-surface: #eeecea;
+  --color-card:    #eae8e4;
+
+  /* 텍스트 */
+  --color-text:    #141412;
+  --color-muted:   #4a4842;
+
+  /* 브랜드 팔레트 */
+  --color-green-dark:   #0a3d24;
+  --color-green:        #1a5c38;
+  --color-green-vivid:  #22c069;
+  --color-green-soft:   rgba(26, 92, 56, 0.06);
+  --color-red:          #c0392b;
+
+  /* 보더 */
+  --color-border:       rgba(0, 0, 0, 0.08);
+  --color-border-strong: rgba(0, 0, 0, 0.13);
+
+  /* 폰트 */
+  --font-display: "Syne", sans-serif;
+  --font-body:    "Noto Sans KR", sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
+}

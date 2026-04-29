@@ -1,5 +1,4 @@
-/* nav → 메인 index 에만 적용 */
-body:not(.commerce-page) nav {
+body nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,10 +10,10 @@ body:not(.commerce-page) nav {
   padding: 1.25rem 3rem;
   background: rgba(245, 244, 240, 0.88);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.hero {
+body .hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -58,13 +57,13 @@ footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.75rem;
-  color: var(--muted);
+  color: var(--color-muted);
   font-family: var(--font-display);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--color-border);
 }
 .divider {
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--color-border);
 }

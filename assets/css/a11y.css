@@ -60,7 +60,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--color-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -74,7 +74,7 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--color-text);
 }
 .nav-title span {
   color: var(--accent);
@@ -112,7 +112,7 @@
 }
 .hero-stat-label {
   font-size: 0.78rem;
-  color: var(--muted);
+  color: var(--color-muted);
   margin-top: 0.2rem;
   font-weight: 300;
 }
@@ -124,15 +124,15 @@
   gap: 1.5rem;
   margin-bottom: 1.75rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
 }
 .case-num {
   font-family: var(--font-display);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
-  background: var(--surface);
+  color: var(--color-muted);
+  background: var(--color-surface);
   padding: 0.3rem 0.7rem;
   border-radius: 2rem;
   white-space: nowrap;
@@ -147,12 +147,12 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  color: var(--text);
+  color: var(--color-text);
   margin-bottom: 0.4rem;
 }
 .case-summary {
   font-size: 0.88rem;
-  color: var(--muted);
+  color: var(--color-muted);
   line-height: 1.6;
   font-weight: 300;
 }
@@ -266,7 +266,7 @@
 }
 .reason-desc {
   font-size: 0.85rem;
-  color: var(--text);
+  color: var(--color-text);
   line-height: 1.7;
   font-weight: 300;
 }
@@ -290,25 +290,25 @@
   width: 100%;
   border-collapse: collapse;
   background: #fff;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
 }
 .summary-table th {
   font-family: var(--font-display);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--color-muted);
   font-weight: 700;
   padding: 1rem 1.25rem;
   text-align: left;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
 }
 .summary-table td {
   font-size: 0.85rem;
-  color: var(--text);
+  color: var(--color-text);
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
   line-height: 1.5;
   vertical-align: top;
 }
@@ -316,7 +316,7 @@
   border-bottom: none;
 }
 .summary-table tr:hover td {
-  background: var(--accent-light);
+  background: var(--accent-soft);
 }
 .badge {
   display: inline-block;
@@ -357,7 +357,7 @@
 }
 .back-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--accent-bright);
+  box-shadow: 4px 4px 0 var(--accent-vivid);
 }
 
 /* 반응형 */
