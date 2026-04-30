@@ -514,6 +514,22 @@ body {
   transform: scale(1.05);
 }
 
+/* 상품 카드 hover 오버레이 */
+.product-thumb::after,
+.style-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.product-card:hover .product-thumb::after,
+.style-card:hover .style-thumb::after {
+  background: rgba(0, 0, 0, 0.12);
+}
+
 .wish-btn {
   position: absolute;
   top: 0.75rem;
@@ -781,11 +797,13 @@ body {
 }
 
 .style-thumb {
+  position: relative;
   aspect-ratio: 4 / 3;
   background: linear-gradient(135deg, #e8f8f3, #d0f0e8);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .style-thumb-placeholder {
@@ -1041,6 +1059,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    pointer-events: auto;
   }
 
   .hero-banner  { min-height: unset; }
