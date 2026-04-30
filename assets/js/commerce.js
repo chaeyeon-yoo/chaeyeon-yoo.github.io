@@ -63,20 +63,8 @@ wishBtns.forEach(btn => {
 
   if (!btn || !nav || !overlay) return;
 
-  function getScrollbarWidth() {
-    return window.innerWidth - document.documentElement.clientWidth; /* 스크롤바 너비를 CSS 변수로 저장 — body 고정 시 레이아웃 밀림 방지 */
-  }
-
   function open() {
-    const sbw = getScrollbarWidth();
-    document.body.style.overflow     = 'hidden';
-    document.body.style.paddingRight = sbw + 'px';
-
-    const fixedEls = document.querySelectorAll('.home-btn, .top-btn');
-    fixedEls.forEach(el => {
-      const baseRight = parseInt(getComputedStyle(el).right) || 32;
-      el.style.right = (baseRight + sbw) + 'px';
-    });
+    document.body.style.overflow = 'hidden';
 
     btn.setAttribute('aria-expanded', 'true');
     btn.setAttribute('aria-label',    '메뉴 닫기');
@@ -85,11 +73,7 @@ wishBtns.forEach(btn => {
   }
 
   function close() {
-    document.body.style.overflow     = '';
-    document.body.style.paddingRight = '';
-
-    const fixedEls = document.querySelectorAll('.home-btn, .top-btn');
-    fixedEls.forEach(el => { el.style.right = ''; });
+    document.body.style.overflow = '';
 
     btn.setAttribute('aria-expanded', 'false');
     btn.setAttribute('aria-label',    '메뉴 열기');

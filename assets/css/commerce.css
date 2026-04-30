@@ -24,6 +24,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable; /* 추가 */
 }
 
 body {
