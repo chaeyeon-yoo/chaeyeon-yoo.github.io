@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 집 스타일 — 여름 인테리어 기획전</title>
+  <meta name="description" content="오늘의집 스타일 커머스 프로모션 페이지 클론 및 접근성 개선 작업물" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/token.css">
+  <link rel="stylesheet" href="../../assets/css/commerce.css">
+  <script src="../../assets/js/reveal.js" defer></script>
+  <script src="../../assets/js/commerce.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#main" class="skip-nav visually-hidden">본문 바로가기</a>
+      <a href="/" class="logo" aria-label="오늘의 집 홈으로 이동">
+        <span class="logo-text">오늘의 집</span>
+      </a>
+      <nav class="gnb" aria-label="주요 메뉴">
+        <ul class="gnb-list" role="list">
+          <li><a href="#">커뮤니티</a></li>
+          <li><a href="#">스토어</a></li>
+          <li><a href="#">이사/시공</a></li>
+          <li><a href="#" aria-current="page">기획전</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="icon-btn" aria-label="검색">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </button>
+        <button type="button" class="icon-btn" aria-label="장바구니">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner" aria-label="여름 인테리어 기획전 메인 배너">
+      <div class="hero-inner">
+        <div class="hero-badge">2025 SUMMER</div>
+        <h1 class="hero-title">
+          여름 인테리어<br>
+          <span class="hero-title-accent">기획전</span>
+        </h1>
+        <p class="hero-desc">시원하고 감각적인 여름 공간을 위한<br>특별 기획 아이템을 만나보세요</p>
+        <div class="hero-period">
+          <span class="period-label">기간</span>
+          <span class="period-date">2025.07.01 — 07.31</span>
+        </div>
+        <a href="#products" class="hero-cta">기획전 상품 보기</a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-img-wrap">
+          <div class="hero-img-placeholder">
+            <span>🛋</span>
+          </div>
+        </div>
+        <div class="hero-deco hero-deco-1" aria-hidden="true"></div>
+        <div class="hero-deco hero-deco-2" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- CATEGORY TAB -->
+    <section class="category-section" aria-labelledby="category-heading">
+      <h2 id="category-heading" class="visually-hidden">카테고리별 보기</h2>
+      <div class="category-inner">
+        <div role="tablist" aria-label="상품 카테고리">
+          <button type="button" role="tab" aria-selected="true" aria-controls="panel-all" id="tab-all"
+            class="category-tab active">전체</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="panel-living" id="tab-living"
+            class="category-tab">거실</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="panel-bedroom" id="tab-bedroom"
+            class="category-tab">침실</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="panel-kitchen" id="tab-kitchen"
+            class="category-tab">주방</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="panel-bath" id="tab-bath"
+            class="category-tab">욕실</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFIT BANNER -->
+    <section class="benefit-section" aria-label="기획전 혜택 안내">
+      <div class="benefit-inner">
+        <ul class="benefit-list" role="list">
+          <li class="benefit-item">
+            <span class="benefit-icon" aria-hidden="true">🎁</span>
+            <strong class="benefit-title">최대 40% 할인</strong>
+            <span class="benefit-desc">기획전 단독 특가</span>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-icon" aria-hidden="true">🚚</span>
+            <strong class="benefit-title">무료배송</strong>
+            <span class="benefit-desc">3만원 이상 구매 시</span>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-icon" aria-hidden="true">💳</span>
+            <strong class="benefit-title">카드 추가 5%</strong>
+            <span class="benefit-desc">신한카드 결제 시</span>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-icon" aria-hidden="true">⭐</span>
+            <strong class="benefit-title">포인트 2배</strong>
+            <span class="benefit-desc">기간 내 구매 고객</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
+    <section class="product-section" id="products" aria-labelledby="product-heading">
+      <div class="product-inner">
+        <div class="product-header">
+          <h2 id="product-heading" class="product-heading">기획전 상품</h2>
+          <p class="product-count" aria-live="polite">총 <strong>24</strong>개 상품</p>
+        </div>
+
+        <div id="panel-all" role="tabpanel" aria-labelledby="tab-all">
+          <ul class="product-grid" role="list">
+
+            <!-- PRODUCT CARD 01 -->
+            <li class="product-card">
+              <div class="product-thumb">
+                <div class="thumb-placeholder" aria-hidden="true">🪑</div>
+                <button type="button" class="wish-btn" aria-label="모던 라탄 의자 찜하기" aria-pressed="false">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </button>
+                <span class="product-badge" aria-label="할인율">-35%</span>
+              </div>
+              <div class="product-info">
+                <p class="product-brand">리빙하우스</p>
+                <h3 class="product-name">모던 라탄 라운지체어</h3>
+                <div class="product-price-wrap">
+                  <span class="price-original">
+                    <span class="visually-hidden">정가</span>
+                    <s>189,000원</s>
+                  </span>
+                  <span class="price-current">
+                    <span class="visually-hidden">할인가</span>
+                    <strong>122,000</strong>원
+                  </span>
+                </div>
+                <div class="product-meta">
+                  <span class="product-rating" aria-label="평점 4.8점">★ 4.8</span>
+                  <span class="product-review" aria-label="리뷰 213개">(213)</span>
+                </div>
+              </div>
+            </li>
+
+            <!-- PRODUCT CARD 02 -->
+            <li class="product-card">
+              <div class="product-thumb">
+                <div class="thumb-placeholder" aria-hidden="true">🪴</div>
+                <button type="button" class="wish-btn" aria-label="세라믹 화분 세트 찜하기" aria-pressed="false">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </button>
+                <span class="product-badge" aria-label="할인율">-20%</span>
+              </div>
+              <div class="product-info">
+                <p class="product-brand">그린플랜트</p>
+                <h3 class="product-name">세라믹 화분 세트 3종</h3>
+                <div class="product-price-wrap">
+                  <span class="price-original"><span class="visually-hidden">정가</span><s>45,000원</s></span>
+                  <span class="price-current"><span class="visually-hidden">할인가</span><strong>36,000</strong>원</span>
+                </div>
+                <div class="product-meta">
+                  <span class="product-rating" aria-label="평점 4.6점">★ 4.6</span>
+                  <span class="product-review" aria-label="리뷰 87개">(87)</span>
+                </div>
+              </div>
+            </li>
+
+            <!-- PRODUCT CARD 03 -->
+            <li class="product-card">
+              <div class="product-thumb">
+                <div class="thumb-placeholder" aria-hidden="true">💡</div>
+                <button type="button" class="wish-btn" aria-label="북유럽 펜던트 조명 찜하기" aria-pressed="false">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </button>
+                <span class="product-badge badge-new" aria-label="신상품">NEW</span>
+              </div>
+              <div class="product-info">
+                <p class="product-brand">루미에르</p>
+                <h3 class="product-name">북유럽 라탄 펜던트 조명</h3>
+                <div class="product-price-wrap">
+                  <span class="price-current"><span class="visually-hidden">가격</span><strong>78,000</strong>원</span>
+                </div>
+                <div class="product-meta">
+                  <span class="product-rating" aria-label="평점 4.9점">★ 4.9</span>
+                  <span class="product-review" aria-label="리뷰 341개">(341)</span>
+                </div>
+              </div>
+            </li>
+
+            <!-- PRODUCT CARD 04 -->
+            <li class="product-card">
+              <div class="product-thumb">
+                <div class="thumb-placeholder" aria-hidden="true">🛏</div>
+                <button type="button" class="wish-btn" aria-label="린넨 침구 세트 찜하기" aria-pressed="false">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </button>
+                <span class="product-badge" aria-label="할인율">-40%</span>
+              </div>
+              <div class="product-info">
+                <p class="product-brand">슬립웰</p>
+                <h3 class="product-name">워싱 린넨 침구 세트 (4종)</h3>
+                <div class="product-price-wrap">
+                  <span class="price-original"><span class="visually-hidden">정가</span><s>158,000원</s></span>
+                  <span class="price-current"><span class="visually-hidden">할인가</span><strong>94,800</strong>원</span>
+                </div>
+                <div class="product-meta">
+                  <span class="product-rating" aria-label="평점 4.7점">★ 4.7</span>
+                  <span class="product-review" aria-label="리뷰 520개">(520)</span>
+                </div>
+              </div>
+            </li>
+
+            <!-- PRODUCT CARD 05 -->
+            <li class="product-card">
+              <div class="product-thumb">
+                <div class="thumb-placeholder" aria-hidden="true">🪞</div>
+                <button type="button" class="wish-btn" aria-label="아치형 거울 찜하기" aria-pressed="false">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </button>
+                <span class="product-badge" aria-label="할인율">-25%</span>
+              </div>
+              <div class="product-info">
+                <p class="product-brand">미러하우스</p>
+                <h3 class="product-name">아치형 풀렝스 거울</h3>
+                <div class="product-price-wrap">
+                  <span class="price-original"><span class="visually-hidden">정가</span><s>89,000원</s></span>
+                  <span class="price-current"><span class="visually-hidden">할인가</span><strong>66,800</strong>원</span>
+                </div>
+                <div class="product-meta">
+                  <span class="product-rating" aria-label="평점 4.5점">★ 4.5</span>
+                  <span class="product-review" aria-label="리뷰 178개">(178)</span>
+                </div>
+              </div>
+            </li>
+
+            <!-- PRODUCT CARD 06 -->
+            <li class="product-card">
+              <div class="product-thumb">
+                <div class="thumb-placeholder" aria-hidden="true">🫙</div>
+                <button type="button" class="wish-btn" aria-label="유리 수납 용기 세트 찜하기" aria-pressed="false">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </button>
+                <span class="product-badge badge-best" aria-label="베스트">BEST</span>
+              </div>
+              <div class="product-info">
+                <p class="product-brand">키친스토리</p>
+                <h3 class="product-name">유리 밀폐 수납 용기 5종 세트</h3>
+                <div class="product-price-wrap">
+                  <span class="price-original"><span class="visually-hidden">정가</span><s>52,000원</s></span>
+                  <span class="price-current"><span class="visually-hidden">할인가</span><strong>38,900</strong>원</span>
+                </div>
+                <div class="product-meta">
+                  <span class="product-rating" aria-label="평점 4.8점">★ 4.8</span>
+                  <span class="product-review" aria-label="리뷰 892개">(892)</span>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="load-more-wrap">
+          <button type="button" class="load-more-btn" aria-label="상품 더 보기, 현재 6개 표시 중">
+            상품 더 보기
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MID BANNER -->
+    <section class="mid-banner" aria-label="인테리어 스타일 추천 배너">
+      <div class="mid-banner-inner">
+        <div class="mid-banner-text">
+          <p class="mid-banner-sub">INTERIOR STYLE</p>
+          <h2 class="mid-banner-title">나만의 여름<br>공간을 완성하세요</h2>
+          <a href="#" class="mid-banner-link">스타일 둘러보기
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        <div class="mid-banner-visual" aria-hidden="true">
+          <div class="mid-banner-circles">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+          </div>
+          <span class="mid-banner-emoji">🌿</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STYLE PICK -->
+    <section class="style-section" aria-labelledby="style-heading">
+      <div class="style-inner">
+        <div class="style-header">
+          <h2 id="style-heading" class="style-heading">스타일 픽</h2>
+          <p class="style-desc">에디터가 엄선한 여름 인테리어 스타일</p>
+        </div>
+        <ul class="style-grid" role="list">
+          <li class="style-card">
+            <div class="style-thumb" aria-hidden="true">
+              <div class="style-thumb-placeholder">🌊</div>
+            </div>
+            <div class="style-info">
+              <h3 class="style-name">코스탈 리조트</h3>
+              <p class="style-desc-text">바다를 닮은 청량한 색감</p>
+              <a href="#" class="style-link" aria-label="코스탈 리조트 스타일 상품 보기">상품 보기</a>
+            </div>
+          </li>
+          <li class="style-card">
+            <div class="style-thumb" aria-hidden="true">
+              <div class="style-thumb-placeholder">🍃</div>
+            </div>
+            <div class="style-info">
+              <h3 class="style-name">보타니컬 그린</h3>
+              <p class="style-desc-text">자연 속 싱그러운 공간</p>
+              <a href="#" class="style-link" aria-label="보타니컬 그린 스타일 상품 보기">상품 보기</a>
+            </div>
+          </li>
+          <li class="style-card">
+            <div class="style-thumb" aria-hidden="true">
+              <div class="style-thumb-placeholder">🏺</div>
+            </div>
+            <div class="style-info">
+              <h3 class="style-name">내추럴 라탄</h3>
+              <p class="style-desc-text">따뜻한 소재의 여름 감성</p>
+              <a href="#" class="style-link" aria-label="내추럴 라탄 스타일 상품 보기">상품 보기</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-notice">
+        본 페이지는 포트폴리오 목적으로 제작된 오늘의집 스타일 클론 페이지입니다.<br>
+        실제 오늘의집 서비스와 무관하며, 상업적 용도로 사용되지 않습니다.
+      </p>
+      <p class="footer-copy">© 2026 Portfolio Clone — Web Publisher 유채연</p>
+    </div>
+  </footer>
+
+  <a href="../../index.html" class="home-btn" aria-label="포트폴리오 메인으로 이동">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      aria-hidden="true">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
+    </svg>
+  </a>
+  <button type="button" class="top-btn" id="topBtn" data-scroll-trigger="600" aria-label="페이지 상단으로 이동">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      aria-hidden="true">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+</body>
+
+</html>
