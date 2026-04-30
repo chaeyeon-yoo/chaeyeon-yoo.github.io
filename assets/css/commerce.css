@@ -1,9 +1,4 @@
-/*
- * commerce.css
- * 의존: reset.css → token.css → commerce.css
- * 포트폴리오 공용 파일(common / layout / components)과 완전히 독립.
- * 커머스 페이지(index.html)에서만 사용.
- */
+/* 커머스 페이지(index.html)에서만 사용 */
 
 /* commerce 디자인 토큰 */
 body {
@@ -923,6 +918,111 @@ body {
   outline-offset: 3px;
 }
 
+/* 햄버거 버튼 */
+.hamburger-btn {
+  display: none; /* 기본은 숨김, 모바일에서만 표시 */
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  padding: 6px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.hamburger-btn:hover {
+  background: var(--bg-gray);
+}
+
+.hamburger-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.hamburger-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.25s ease, opacity 0.2s ease, width 0.25s ease;
+}
+
+/* 열렸을 때 X */
+.hamburger-btn[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* 모바일 nav 드로어 */
+.mobile-nav {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  z-index: 95;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mobile-nav[aria-hidden="false"] {
+  max-height: 280px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 1rem;
+}
+
+.mobile-nav-list a {
+  display: block;
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-sub);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.mobile-nav-list a:hover,
+.mobile-nav-list a[aria-current="page"] {
+  background: var(--accent-light);
+  color: var(--accent-dark);
+}
+
+/* 딤 오버레이 */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 94;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* 반응형 */
 @media (max-width: 1024px) {
   .product-grid  { grid-template-columns: repeat(2, 1fr); }
@@ -931,8 +1031,16 @@ body {
 }
 
 @media (max-width: 768px) {
-  .header-inner { justify-content: space-between; }
+  .header-inner { justify-content: space-between;
+    position: relative;
+  }
   .gnb          { display: none; }
+  .hamburger-btn { display: flex; }
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   .hero-banner  { min-height: unset; }
   .hero-inner   { padding: 3rem 1.5rem; }

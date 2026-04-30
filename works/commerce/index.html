@@ -21,6 +21,11 @@
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a href="#main" class="skip-nav visually-hidden">본문 바로가기</a>
+      <button type="button" class="hamburger-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
       <a href="/" class="logo" aria-label="오늘의 집 홈으로 이동">
         <span class="logo-text">오늘의 집</span>
       </a>
@@ -51,6 +56,17 @@
       </div>
     </div>
   </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="모바일 메뉴" aria-hidden="true">
+    <ul class="mobile-nav-list" role="list">
+      <li><a href="#">커뮤니티</a></li>
+      <li><a href="#">스토어</a></li>
+      <li><a href="#">이사/시공</a></li>
+      <li><a href="#" aria-current="page">기획전</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
 
   <main id="main">
 

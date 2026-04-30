@@ -54,3 +54,59 @@ wishBtns.forEach(btn => {
     }
   });
 });
+
+/* 햄버거 메뉴 */
+(function () {
+  const btn     = document.querySelector('.hamburger-btn');
+  const nav     = document.getElementById('mobile-nav');
+  const overlay = document.querySelector('.mobile-nav-overlay');
+
+  if (!btn || !nav || !overlay) return;
+
+  function getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth; /* 스크롤바 너비를 CSS 변수로 저장 — body 고정 시 레이아웃 밀림 방지 */
+  }
+
+  function open() {
+    const sbw = getScrollbarWidth();
+    document.body.style.overflow     = 'hidden';
+    document.body.style.paddingRight = sbw + 'px';
+
+    const fixedEls = document.querySelectorAll('.home-btn, .top-btn');
+    fixedEls.forEach(el => {
+      const baseRight = parseInt(getComputedStyle(el).right) || 32;
+      el.style.right = (baseRight + sbw) + 'px';
+    });
+
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label',    '메뉴 닫기');
+    nav.setAttribute('aria-hidden',   'false');
+    overlay.classList.add('active');
+  }
+
+  function close() {
+    document.body.style.overflow     = '';
+    document.body.style.paddingRight = '';
+
+    const fixedEls = document.querySelectorAll('.home-btn, .top-btn');
+    fixedEls.forEach(el => { el.style.right = ''; });
+
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label',    '메뉴 열기');
+    nav.setAttribute('aria-hidden',   'true');
+    overlay.classList.remove('active');
+  }
+
+  btn.addEventListener('click', () => {
+    btn.getAttribute('aria-expanded') === 'true' ? close() : open();
+  });
+
+  overlay.addEventListener('click', close);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') close();
+  });
+
+  /* 메뉴 링크 클릭 시 자동 닫기 */
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+})();
