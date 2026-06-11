@@ -102,30 +102,6 @@
   border-top: 2px solid var(--good);
 }
 
-/* code color */
-.token-tag {
-  color: #89b4fa;
-}
-.token-attr {
-  color: #cba6f7;
-}
-.token-val {
-  color: #a6e3a1;
-}
-.token-comment {
-  color: #585b70;
-  font-style: italic;
-}
-.token-bad {
-  color: #f38ba8;
-}
-.token-good {
-  color: #a6e3a1;
-}
-.token-text {
-  color: #cdd6f4;
-}
-
 /* REASON BOX */
 .reason-box {
   background: var(--good-bg);
