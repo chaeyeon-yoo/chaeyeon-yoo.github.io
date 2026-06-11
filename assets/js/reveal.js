@@ -37,7 +37,7 @@ if (topBtn) {
   }
   // 2. 프로젝트 페이지 (section id 없음)
   else {
-    const trigger = parseInt(topBtn.dataset.scrollTrigger) || 600; // 값이 없을 시 600
+    const trigger = parseInt(topBtn.dataset.scrollTrigger) || 300; // 값이 없을 시 300
 
     window.addEventListener("scroll", () => {
       if (window.scrollY > trigger) {
