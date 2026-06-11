@@ -885,6 +885,11 @@
 }
 
 /* BACK BTN */
+.back-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 3rem 5rem;
+}
 .back-btn {
   display: inline-flex;
   align-items: center;
