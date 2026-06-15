@@ -16,6 +16,7 @@
 .work-hero .hero-desc {
   font-size: 1rem;
   max-width: 560px;
+  margin-bottom: 2.5rem;
   line-height: 1.8;
   opacity: 1;
   animation: none;
