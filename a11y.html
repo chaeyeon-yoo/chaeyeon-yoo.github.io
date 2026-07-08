@@ -74,7 +74,7 @@
       <h3 class="sub-title" data-reveal aria-label="운영 환경에서 발견한 접근성 이슈를 구조적으로 개선했습니다."><span aria-hidden="true">운영 환경에서 발견한 접근성 이슈를<br>구조적으로 개선했습니다.</span></h3>
       <div class="bio-columns" data-reveal>
         <p>SK텔레콤 T world 운영 과정에서 웹 접근성(WA) 인증 갱신 업무를 담당했습니다. 단순 체크리스트 대응이 아닌, 실제 사용자 시나리오 기반으로 이슈를 발견하고 HTML 구조와 ARIA 속성을 개선하는 방식으로 접근했습니다.</p>
-        <p>아래는 실무에서 직접 수정하거나 검토한 마크업 개선 사례 중 10건을 선별해 정리했습니다. WCAG 2.1 AA 기준을 적용 기준으로 삼았으며, 개선 전후를 코드 단위로 기록했습니다.</p>
+        <p>아래는 실무에서 직접 수정하거나 검토한 마크업 개선 사례 중 10건을 선별해 정리했습니다. 웹 접근성(WA) 인증 심사 기준에 따라 개선했으며, 개선 전후를 코드 단위로 기록했습니다.</p>
       </div>
     </div>
 
@@ -88,9 +88,9 @@
           <span class="stat-value" aria-hidden="true">5회</span>
           <span class="stat-label" aria-hidden="true">WA 인증 갱신</span>
         </div>
-        <div class="stat-item" role="text" aria-label="WCAG 2.1 AA 준수">
-          <span class="stat-value" aria-hidden="true">WCAG</span>
-          <span class="stat-label" aria-hidden="true">2.1 AA 준수</span>
+        <div class="stat-item" role="text" aria-label="WCAG Level A 기준 대응">
+          <span class="stat-value" aria-hidden="true">Level A</span>
+          <span class="stat-label" aria-hidden="true">WCAG 기준 대응</span>
         </div>
       </div>
     </div>
@@ -110,7 +110,7 @@
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;!-- alt 없음 --&gt;
+          <pre class="code-block"><code>    &lt;!-- alt 없음 --&gt;
     &lt;img src="banner_main.jpg"&gt;
 
     &lt;!-- 의미 없는 alt --&gt;
@@ -122,7 +122,7 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;!-- 이미지 내용을 구체적으로 설명 --&gt;
+          <pre class="code-block"><code>    &lt;!-- 이미지 내용을 구체적으로 설명 --&gt;
     &lt;img src="banner_main.jpg"
         alt="5G 요금제 여름 특가, 최대 50% 할인"&gt;
 
@@ -135,7 +135,7 @@
         alt=""&gt;</code></pre>
         </div>
       </div>
-      <p class="case-desc">스크린리더는 alt 값을 그대로 읽습니다. alt가 없으면 파일명을 읽거나 건너뛰어 정보가 누락되고, "이미지"처럼 의미 없는 값은 정보를 전달하지 못합니다. 의미 있는 이미지는 내용을 설명하고, 장식용은 alt=""로 처리해 스크린리더가 건너뛰게 해야 합니다. WA 인증 심사에서 지적받아 발견한 항목이라, 이후로는 같은 패턴의 이미지 마크업을 작업할 때 셀프 점검으로 먼저 반영했습니다.</p>
+      <p class="case-desc">스크린리더는 alt 값을 그대로 읽습니다. alt가 없으면 파일명을 읽거나 건너뛰어 정보가 누락되고, "이미지"처럼 의미 없는 값은 정보를 전달하지 못합니다. 의미 있는 이미지는 내용을 설명하고, 장식용은 alt=""로 처리해 스크린리더가 건너뛰게 해야 합니다. 이후로는 같은 패턴의 이미지 마크업을 작업할 때 셀프 점검으로 먼저 반영했습니다.</p>
     </div>
     <div class="grid-cell empty-cell"></div>
 
@@ -153,7 +153,7 @@
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;!-- type 없음 + 레이블 없는 아이콘 버튼 --&gt;
+          <pre class="code-block"><code>    &lt;!-- type 없음 + 레이블 없는 아이콘 버튼 --&gt;
     &lt;button class="btn-close"&gt;
       &lt;img src="icon-close.svg" alt=""&gt;
     &lt;/button&gt;
@@ -164,7 +164,7 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;!-- type + aria-label 명시 --&gt;
+          <pre class="code-block"><code>    &lt;!-- type + aria-label 명시 --&gt;
     &lt;button type="button"
             class="btn-close"
             aria-label="팝업 닫기"&gt;
@@ -200,7 +200,7 @@
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;!-- 포커스 이동 없음 --&gt;
+          <pre class="code-block"><code>    &lt;!-- 포커스 이동 없음 --&gt;
     &lt;div class="modal" id="modal"&gt;
       모달 내용
       &lt;button&gt;닫기&lt;/button&gt;
@@ -215,7 +215,7 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;!-- role + aria 속성 + 포커스 이동 --&gt;
+          <pre class="code-block"><code>    &lt;!-- role + aria 속성 + 포커스 이동 --&gt;
     &lt;div class="modal" id="modal"
         role="dialog"
         aria-modal="true"
@@ -253,7 +253,7 @@
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;!-- span으로 레이블 처리 --&gt;
+          <pre class="code-block"><code>    &lt;!-- span으로 레이블 처리 --&gt;
     &lt;div class="form-group"&gt;
       &lt;span class="label"&gt;이름&lt;/span&gt;
       &lt;input type="text"
@@ -266,7 +266,7 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;!-- for-id로 label과 input 연결 --&gt;
+          <pre class="code-block"><code>    &lt;!-- for-id로 label과 input 연결 --&gt;
     &lt;div class="form-group"&gt;
       &lt;label for="input-name"&gt;이름&lt;/label&gt;
       &lt;input type="text"
@@ -281,7 +281,7 @@
           placeholder="example@email.com"&gt;</code></pre>
         </div>
       </div>
-      <p class="case-desc">placeholder는 입력하면 사라지기 때문에 레이블을 대체할 수 없습니다. label for와 input id를 연결하면 스크린리더가 필드 진입 시 레이블을 읽어주고, 레이블 클릭 시 해당 필드로 포커스가 이동합니다. 이 역시 인증 심사에서 지적된 항목이었고, 운영 중인 화면이라 구조를 바꾸지 않고 label/for 속성만으로 해결해야 했습니다.</p>
+      <p class="case-desc">placeholder는 입력하면 사라지기 때문에 레이블을 대체할 수 없습니다. label for와 input id를 연결하면 스크린리더가 필드 진입 시 레이블을 읽어주고, 레이블 클릭 시 해당 필드로 포커스가 이동합니다. 레이아웃 구조는 유지한 채 label 요소와 for/id 연결로 해결했습니다.</p>
     </div>
     <div class="grid-cell empty-cell"></div>
 
@@ -299,7 +299,7 @@
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;style&gt;
+          <pre class="code-block"><code>    &lt;style&gt;
       .hidden { display: none; }
     &lt;/style&gt;
 
@@ -311,7 +311,7 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;style&gt;
+          <pre class="code-block"><code>    &lt;style&gt;
       .visually-hidden {
         position: absolute;
         width: 1px; height: 1px;
@@ -342,13 +342,13 @@
     </section>
     <div class="grid-cell section-content case-content">
       <div class="case-header">
-        <span class="case-tag">툴팁 — WCAG 1.4.13 / Level AA</span>
+        <span class="case-tag">툴팁 — WCAG 2.1.1 / Level A</span>
         <h3 class="case-title-sm" aria-label="hover로만 표시되는 툴팁은 키보드 사용자에게 전달되지 않았습니다."><span aria-hidden="true">hover로만 표시되는 툴팁은<br>키보드 사용자에게 전달되지 않았습니다.</span></h3>
       </div>
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;!-- hover CSS만으로 툴팁 처리 --&gt;
+          <pre class="code-block"><code>    &lt;!-- hover CSS만으로 툴팁 처리 --&gt;
     &lt;div class="tooltip-wrap"&gt;
       &lt;button type="button"&gt;?&lt;/button&gt;
       &lt;span class="tooltip"&gt;
@@ -365,7 +365,7 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;!-- aria-describedby + role="tooltip" --&gt;
+          <pre class="code-block"><code>    &lt;!-- aria-describedby + role="tooltip" --&gt;
     &lt;div class="tooltip-wrap"&gt;
       &lt;button type="button"
               aria-label="요금제 안내"
@@ -384,19 +384,10 @@
       .tooltip-wrap:focus-within .tooltip {
         display: block;
       }
-    &lt;/style&gt;
-
-    &lt;script&gt;
-      // Esc로 닫기 가능 (WCAG 1.4.13 dismissible)
-      document.querySelectorAll('.tooltip-wrap button').forEach((btn) => {
-        btn.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') btn.blur();
-        });
-      });
-    &lt;/script&gt;</code></pre>
+    &lt;/style&gt;</code></pre>
         </div>
       </div>
-      <p class="case-desc">hover로만 표시되는 툴팁은 키보드 포커스 시에도 표시되어야 합니다. aria-describedby로 버튼과 툴팁을 연결하면 스크린리더가 버튼 포커스 시 툴팁 내용을 함께 읽어주고, Esc 키로 닫을 수 있게 해 포커스가 남아 있어도 툴팁을 걷어낼 수 있게 했습니다. 유사한 상호작용 이슈를 이미 겪어본 뒤라, 이번엔 심사 지적 전에 셀프 점검으로 먼저 반영했습니다.</p>
+      <p class="case-desc">hover로만 표시되는 툴팁은 키보드 포커스 시에도 표시되어야 합니다. aria-describedby로 버튼과 툴팁을 연결하면 스크린리더가 버튼 포커스 시 툴팁 내용을 함께 읽어줍니다.</p>
     </div>
     <div class="grid-cell empty-cell"></div>
 
@@ -414,7 +405,7 @@
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;!-- div/button만으로 탭 구현 --&gt;
+          <pre class="code-block"><code>    &lt;!-- div/button만으로 탭 구현 --&gt;
     &lt;div class="tab-list"&gt;
       &lt;button class="tab active"&gt;
         5G 요금제
@@ -429,7 +420,7 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;!-- ARIA role로 탭 구조 명시 --&gt;
+          <pre class="code-block"><code>    &lt;!-- ARIA role로 탭 구조 명시 --&gt;
     &lt;div role="tablist"
         aria-label="요금제 종류"&gt;
       &lt;button type="button"
@@ -469,7 +460,7 @@
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;!-- 열림/닫힘 상태 전달 없음 --&gt;
+          <pre class="code-block"><code>    &lt;!-- 열림/닫힘 상태 전달 없음 --&gt;
     &lt;div class="accordion"&gt;
       &lt;button type="button"
               class="accordion-btn"&gt;
@@ -482,7 +473,7 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;!-- aria-expanded + aria-controls --&gt;
+          <pre class="code-block"><code>    &lt;!-- aria-expanded + aria-controls --&gt;
     &lt;div class="accordion"&gt;
       &lt;button type="button"
               class="accordion-btn"
@@ -518,7 +509,7 @@
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;!-- caption, scope, thead 없음 --&gt;
+          <pre class="code-block"><code>    &lt;!-- caption, scope, thead 없음 --&gt;
     &lt;table&gt;
       &lt;tr&gt;
         &lt;td&gt;요금제명&lt;/td&gt;
@@ -534,7 +525,7 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;!-- caption + thead + scope 적용 --&gt;
+          <pre class="code-block"><code>    &lt;!-- caption + thead + scope 적용 --&gt;
     &lt;table&gt;
       &lt;caption&gt;5G 요금제 비교표&lt;/caption&gt;
       &lt;thead&gt;
@@ -554,7 +545,7 @@
     &lt;/table&gt;</code></pre>
         </div>
       </div>
-      <p class="case-desc">caption은 테이블 제목을 스크린리더에 전달하고, scope="col/row"는 헤더 셀이 어느 방향의 데이터를 설명하는지 명시합니다. thead/tbody 구분으로 구조도 명확해집니다. 운영 중인 화면이라 테이블 구조를 새로 짜기보다 caption/scope 속성 추가로 해결하는 방향을 택했습니다.</p>
+      <p class="case-desc">caption은 테이블 제목을 스크린리더에 전달하고, scope="col/row"는 헤더 셀이 어느 방향의 데이터를 설명하는지 명시합니다. thead/tbody 구분으로 구조도 명확해집니다. 유사한 유형의 이슈를 겪어본 뒤로는, 테이블 마크업은 항상 caption/scope를 기본으로 넣어 작업했습니다.</p>
     </div>
     <div class="grid-cell empty-cell"></div>
 
@@ -572,7 +563,7 @@
       <div class="before-after">
         <div class="ba-block">
           <span class="ba-label">BEFORE</span>
-          <pre class="code-block"><code>&lt;!-- 새 창 안내 없음 --&gt;
+          <pre class="code-block"><code>    &lt;!-- 새 창 안내 없음 --&gt;
     &lt;a href="https://external.com"
       target="_blank"&gt;
       요금제 안내 바로가기
@@ -589,13 +580,11 @@
         </div>
         <div class="ba-block">
           <span class="ba-label">AFTER</span>
-          <pre class="code-block"><code>&lt;!-- 새 창: visually-hidden으로 안내 --&gt;
+          <pre class="code-block"><code>    &lt;!-- 새 창: title 속성으로 안내 --&gt;
     &lt;a href="https://external.com"
-      target="_blank"&gt;
+      target="_blank"
+      title="요금제 안내 바로가기 (새 창으로 열림)"&gt;
       요금제 안내 바로가기
-      &lt;span class="visually-hidden"&gt;
-        (새 창으로 열림)
-      &lt;/span&gt;
     &lt;/a&gt;
 
     &lt;!-- 팝업: button으로 명확히 구분 --&gt;
@@ -610,7 +599,7 @@
     &lt;/a&gt;</code></pre>
         </div>
       </div>
-      <p class="case-desc">페이지 이동은 a href, 팝업 호출은 button으로 구분하는 것이 원칙입니다. 새 창은 visually-hidden으로 사전 안내하고, aria-haspopup="dialog"로 팝업 호출임을 명시합니다.</p>
+      <p class="case-desc">페이지 이동은 a href, 팝업 호출은 button으로 구분하는 것이 원칙입니다. 새 창은 title 속성으로 사전 안내하고, aria-haspopup="dialog"로 팝업 호출임을 명시합니다.</p>
     </div>
     <div class="grid-cell empty-cell"></div>
 
