@@ -113,7 +113,7 @@
     </section>
     <div class="grid-cell section-content case-content">
       <div class="case-header">
-        <span class="case-tag">마스킹 정책 변경 및 인증 UI 개선</span>
+        <span class="case-tag">마스킹 정책 변경 대응</span>
         <h3 class="case-title-sm" aria-label="GNB 버튼이 로그인 상태에 따라 조건부 노출되며, 최초 방문 시 Lottie 애니메이션을 1회 재생합니다."><span aria-hidden="true">GNB 버튼이 로그인 상태에 따라 조건부 노출되며,<br>최초 방문 시 Lottie 애니메이션을 1회 재생합니다.</span></h3>
       </div>
 
@@ -123,7 +123,7 @@
         <span class="i-tag">Lottie</span>
       </div>
 
-      <p class="case-desc">localStorage로 재생 여부를 관리해 재방문 시 마지막 프레임을 바로 노출합니다. 로그인 상태 분기 처리와 애니메이션 타이밍 제어를 함께 구현했습니다.</p>
+      <p class="case-desc">마스킹 정책이 변경되면서 인증 UI 전반의 개선이 필요했고, 그 일환으로 로그인 상태에 따른 GNB 버튼 노출 조건을 재정의했습니다. localStorage로 재생 여부를 관리해 재방문 시 마지막 프레임을 바로 노출하도록 구현했으며, 로그인 상태 분기 처리와 애니메이션 타이밍 제어를 함께 다뤘습니다.</p>
 
       <pre class="code-block" aria-label="예시 코드"><code>// default : 애니메이션 자동 재생 X
 const params = {
