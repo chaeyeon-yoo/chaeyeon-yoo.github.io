@@ -1,148 +1,398 @@
-body nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+/* ======== layout ======== */
+/* hero */
+.hero-title-area {
+  grid-column: 1 / 3;
+  padding: 80px 40px;
+}
+
+.hero-graphic-area {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 1.25rem 3rem;
-  background: rgba(245, 244, 240, 0.88);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--color-border);
+  align-items: flex-start;
+  gap: 20px;
 }
 
-/* NAV */
-.nav-back {
+.hero-meta-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 정보 행 사이의 간격 */
+}
+
+.meta-row {
+  display: flex;
+  flex-direction: column; /* 위아래로 쪼개서 더 테크니컬한 느낌 연출 */
+  gap: 4px;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  font-family: monospace; /* 개발자/퍼블리셔 특유의 이성적인 무드 */
+}
+
+.meta-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+}
+
+.sub-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin-bottom: 24px;
+}
+
+/* 애니메이션 오브젝트 */
+.neon-circle {
+  width: 60px;
+  height: 60px;
+  background-color: var(--accent-neon);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--accent-neon);
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(0.95); opacity: 0.8; }
+  to { transform: scale(1.05); opacity: 1; }
+}
+
+/* about */
+.about-content {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+/* work */
+/* 🔥 핵심: 앞선 ABOUT의 빈 칸과 섞이지 않고 무조건 새로운 행 1번째 열에서 시작 */
+.work-visual-area {
+  padding: 30px;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-display);
-  font-size: 0.78rem;
+  justify-content: center;
+}
+
+/* 썸네일을 감싸는 부모 박스 */
+.work-thumbnail {
+  position: relative;
+  width: 100%;
+  /* 🔥 핵심 수정: 높이를 유동적으로 두되, 브라우저 창(Viewport) 높이의 65%를 넘지 않도록 제한 */
+  height: 65vh;
+  min-height: 350px; /* 모바일이나 아주 작은 화면에서 너무 찌그러지는 것 방지 */
+  background-color: #F8F7F4;
+  border: 1px solid var(--grid-line);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* 🖼️ 이미지 스타일: 비율 유지하며 박스 안에 예쁘게 안착 */
+.work-thumbnail img {
+  width: 100%;
+  height: 100%; /* 부모 박스 높이(65vh)에 맞춤 */
+  display: block;
+
+  /* 🔥 핵심: 이미지 비율을 깨뜨리지 않고(cover), 상단 중앙을 기준으로 박스를 가득 채움 */
+  object-fit: cover;
+  object-position: top center;
+
+  /* 흑백 필터 및 동일한 0.4초 싱크 타이밍 */
+  filter: grayscale(100%) contrast(0.9) brightness(0.95);
+  transition: filter 0.4s ease-in-out;
+}
+
+/* 🔗 visit 버튼 기본 상태 */
+.visit-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--grid-line);
+  color: var(--bg-color);
+  padding: 12px 20px;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-muted);
+  letter-spacing: 0.05em;
   text-decoration: none;
-  transition: color 0.2s;
+
+  /* 🔥 이미지 필터와 정확히 싱크를 맞추기 위해 0.4초 세팅 */
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  z-index: 2; /* 이미지 위로 확실히 띄움 */
 }
 
-.nav-back:hover {
-  color: var(--accent);
+/* 이미지 박스에 hover -> 확대 없이 색상 복원 */
+.work-thumbnail:hover img {
+  filter: grayscale(0%) contrast(1) brightness(1);
 }
 
-.nav-title {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-text);
-}
-.nav-title span {
-  color: var(--accent);
+/* 이미지 박스에 hover -> 버튼도 동일한 타임라인(0.4s)으로 네온 그린 변신 */
+.work-thumbnail:hover .visit-btn {
+  background-color: var(--accent-neon);
+  color: #000000;
+  box-shadow: 0 0 15px var(--accent-neon);
 }
 
-body .hero {
-  min-height: 100vh;
+.work-info-area {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 3rem 5rem;
-  position: relative;
-  overflow: hidden;
+  justify-content: space-between;
+  gap: 25px;
 }
 
-.section-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 7rem 3rem;
-}
-
-/* .section-wrap--contact {
-  padding-top: 0;
-} */
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-
-.contact-section {
-  background: var(--accent);
-  padding: 5rem 3rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.75rem;
-  color: var(--color-muted);
-  font-family: var(--font-display);
-  letter-spacing: 0.08em;
+.project-category {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
   text-transform: uppercase;
-  border-top: 1px solid var(--color-border);
-}
-.divider {
-  border: none;
-  border-top: 1px solid var(--color-border);
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 8px;
 }
 
-/* 프로젝트 내 CASE */
-.cases {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 3rem 6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
+.project-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 6px;
 }
-.case-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  margin-bottom: 1.75rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--color-border);
+
+.project-duration {
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
-.case-num {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-  background: var(--color-surface);
-  padding: 0.3rem 0.7rem;
-  border-radius: 2rem;
-  white-space: nowrap;
-  margin-top: 0.2rem;
-}
-.case-meta {
-  flex: 1;
-}
-.case-title {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  color: var(--color-text);
-  margin-bottom: 0.4rem;
-}
-.case-summary {
-  font-size: 0.88rem;
-  color: var(--color-muted);
+
+.project-desc {
+  font-size: 0.95rem;
   line-height: 1.6;
-  font-weight: 300;
+}
+
+.achievements-list {
+  margin-top: 16px;
+  color: var(--text-muted);
+}
+
+.achievements-list li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.achievements-list li::before {
+  content: "—" / ""; /* 시각적으로만 표시, 스크린리더에는 빈 대체텍스트로 전달(읽지 않음) */
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--text-muted);
+  font-family: monospace;
+  font-weight: 400;
+}
+
+.achievements-list li:last-child {
+  margin-bottom: 0;
+}
+
+.project-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tech-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 4px 10px;
+  border: 1px solid var(--grid-line);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background-color: var(--grid-line);
+  color: var(--accent-neon);
+}
+
+/* portfolio */
+.portfolio-bento-wrap {
+  padding: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  /* 부모 격자 내부에서 찌그러지지 않도록 고정 세팅 */
+  display: flex;
+  align-items: stretch;
+  grid-column: span 2;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 카드들이 내부 콘텐츠 양에 상관없이 부모 격자 높이에 맞춰 꽉 차도록 세팅 */
+  grid-auto-rows: 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.bento-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--grid-line);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-sizing: border-box;
+
+  /* 내부 콘텐츠 정렬용 flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+
+  /* 🔥 초기 상태: 투명하고 살짝 아래로 내려가 있음 (reveal.js가 .is-visible 클래스를 붙여줌) */
+  opacity: 0;
+  transform: translateY(30px);
+
+  /* 등장 트랜지션 + 기존 호버 트랜지션 보존 */
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--text-main);
+}
+
+/* 🎬 reveal.js가 화면 진입을 포착해 클래스를 붙여주면 원래 자리로! */
+.bento-grid .bento-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🔥 모션 종료 후 마우스 호버 인터랙션과 충돌 방어 */
+.bento-grid .bento-card.is-visible:hover {
+  transform: translateY(-4px);
+}
+
+/* 2칸차지하는 카드 */
+.bento-card.high-light {
+  grid-column: span 2;
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.card-paragraph {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+  flex-grow: 1;
+}
+
+.high-light .inner-tags {
+  flex-shrink: 0;
+}
+
+.inner-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto; /* 바닥 안착 */
+  padding-top: 15px;
+}
+
+/* @@@@@@@@@@@@@@@ 반응형 @@@@@@@@@@@@@@@ */
+@media (max-width: 968px) {
+  .hero-title-area {
+    grid-column: 1 / -1;
+    padding: 60px 20px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 9vw, 48px);
+  }
+
+  .about-content {
+    grid-column: 1 / -1;
+    padding: 30px 20px;
+  }
+
+  .work-visual-area {
+    padding: 30px 20px;
+  }
+
+  .work-thumbnail {
+    min-height: 250px;
+  }
+
+  .work-info-area {
+    padding: 30px 20px;
+  }
+
+  .portfolio-bento-wrap {
+    padding: 30px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--grid-line); /* 다음 섹션과의 구분선 */
+    grid-column: 1 / -1; /* 무조건 첫 열부터 끝 열까지 전체 너비 사용 */
+  }
+
+  .bento-grid {
+    /* 모바일에서는 격자를 풀고 정직하게 한 줄로 쌓아 올립니다 */
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto; /* 높이가 콘텐츠 양에 맞춰 유연하게 늘어나도록 변경 */
+    gap: 16px; /* 모바일 크기에 맞는 정갈한 간격 */
+  }
+
+  .bento-card.high-light {
+    /* 가로 2칸 먹던 특권을 회수하고 1칸만 채우게 합니다 */
+    grid-column: span 1;
+  }
+
+  .bento-card {
+    padding: 20px;
+    min-height: auto; /* 강제 고정 높이 해제 */
+  }
 }

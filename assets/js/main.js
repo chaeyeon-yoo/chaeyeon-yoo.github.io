@@ -1,56 +1,53 @@
-const hamburger = document.querySelector('.nav-hamburger');
-const navList = document.querySelector('.nav-list');
+document.addEventListener('DOMContentLoaded', () => {
+  const topBtn = document.querySelector('.top-btn');
+  const progressBar = document.querySelector('.reading-progress');
 
-hamburger.addEventListener('click', () => {
-  const isOpen = navList.classList.toggle('open');
-  hamburger.classList.toggle('open');
-  hamburger.setAttribute('aria-expanded', isOpen);
-  hamburger.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
-
-  if (isOpen) {
-    // 메뉴 열리면 첫 번째 링크로 포커스 이동
-    const firstLink = navList.querySelector('a');
-    if (firstLink) firstLink.focus();
-  } else {
-    // 메뉴 닫히면 햄버거 버튼으로 포커스 복귀
-    hamburger.focus();
-  }
-});
-
-// 포커스 트랩
-navList.addEventListener('keydown', (e) => {
-  if (!navList.classList.contains('open')) return;
-
-  const focusable = navList.querySelectorAll('a');
-  const first = focusable[0];
-  const last = focusable[focusable.length - 1];
-
-  if (e.key === 'Tab') {
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
+  // 1. 스크롤 위치에 따라 탑버튼 보이기/숨기기 + 리딩 프로그레스 바 갱신
+  window.addEventListener('scroll', () => {
+    // 현재 스크롤 위치가 300px을 넘으면 'is-visible' 클래스 추가, 아니면 제거
+    if (window.scrollY > 300) {
+      topBtn.classList.add('is-visible');
+    } else {
+      topBtn.classList.remove('is-visible');
     }
-  }
 
-  // ESC 키로 메뉴 닫기
-  if (e.key === 'Escape') {
-    navList.classList.remove('open');
-    hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', false);
-    hamburger.setAttribute('aria-label', '메뉴 열기');
-    hamburger.focus();
-  }
-});
+    if (progressBar) {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+      progressBar.style.transform = `scaleX(${progress})`;
+    }
+  });
 
-// 메뉴 항목 클릭 시 닫기
-navList.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navList.classList.remove('open');
-    hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', false);
-    hamburger.setAttribute('aria-label', '메뉴 열기');
+  // 2. 버튼 클릭 시 최상단으로 부드럽게 이동
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // 3. 코드블록 복사 버튼
+  document.querySelectorAll('.code-block').forEach((block) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copy';
+    btn.setAttribute('aria-label', '코드 복사');
+    block.appendChild(btn);
+
+    btn.addEventListener('click', () => {
+      const code = block.querySelector('code');
+      const text = (code || block).textContent;
+
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('is-copied');
+
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('is-copied');
+        }, 1500);
+      });
+    });
   });
 });

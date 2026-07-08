@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>WA 품질 개선 및 인증 갱신 — 유채연</title>
+  <meta name="description" content="실제 운영 환경에서 발견된 접근성 이슈를 분석하고 개선한 과정을 정리한 케이스 스터디입니다.">
+  <meta name="keywords" content="웹 접근성, WCAG, ARIA, 웹 퍼블리셔, 포트폴리오, 유채연, 접근성 개선" />
+  <meta name="author" content="유채연" />
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WA 품질 개선 및 인증 갱신 — 유채연 웹 퍼블리셔 포트폴리오" />
+  <meta property="og:description" content="실제 운영 환경에서 발견된 접근성 이슈를 분석하고 개선한 과정을 정리한 케이스 스터디입니다." />
+  <meta property="og:url" content="https://chaeyeon-yoo.github.io/a11y.html" />
+  <meta property="og:image" content="https://chaeyeon-yoo.github.io/assets/img/og-thumbnail.png" />
+  <meta name="theme-color" content="#F4F1EA">
+
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/token.css">
+  <link rel="stylesheet" href="assets/css/grid.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/a11y.css">
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">본문 바로가기</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <main class="main-portfolio-container" id="main-content">
+
+    <!-- header -->
+    <header class="grid-cell logo-area">
+      <a href="index.html" class="back-link" aria-label="포트폴리오 홈으로 돌아가기"><span aria-hidden="true">←</span> BACK</a>
+    </header>
+    <div class="grid-cell empty-cell"></div>
+    <div class="grid-cell case-index-area">
+      <span class="case-index">PORTFOLIO 01 / ACCESSIBILITY</span>
+    </div>
+
+    <!-- hero -->
+    <section class="grid-cell case-hero-area">
+      <h1 class="case-title" data-reveal aria-label="웹 접근성(WA) 품질 개선 및 인증 갱신"><span aria-hidden="true">웹 접근성(WA)<br>품질 개선 및 인증 갱신</span></h1>
+    </section>
+    <div class="grid-cell case-hero-meta">
+      <dl class="meta-list" data-reveal>
+        <div class="meta-item">
+          <dt>CLIENT</dt>
+          <dd>SK텔레콤 T world</dd>
+        </div>
+        <div class="meta-item">
+          <dt>PERIOD</dt>
+          <dd>2년 10개월</dd>
+        </div>
+        <div class="meta-item">
+          <dt>ROLE</dt>
+          <dd>Web Publisher</dd>
+        </div>
+        <div class="meta-item">
+          <dt>SKILL</dt>
+          <dd>HTML / ARIA / CSS</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- overview -->
+    <section class="grid-cell section-label" aria-label="Overview">
+      <div class="label-content" data-reveal>
+        <h2>OVERVIEW</h2>
+      </div>
+    </section>
+
+    <div class="grid-cell section-content">
+      <h3 class="sub-title" data-reveal aria-label="운영 환경에서 발견한 접근성 이슈를 구조적으로 개선했습니다."><span aria-hidden="true">운영 환경에서 발견한 접근성 이슈를<br>구조적으로 개선했습니다.</span></h3>
+      <div class="bio-columns" data-reveal>
+        <p>SK텔레콤 T world 운영 과정에서 웹 접근성(WA) 인증 갱신 업무를 담당했습니다. 단순 체크리스트 대응이 아닌, 실제 사용자 시나리오 기반으로 이슈를 발견하고 HTML 구조와 ARIA 속성을 개선하는 방식으로 접근했습니다.</p>
+        <p>아래는 실무에서 직접 수정하거나 검토한 마크업 개선 사례 중 10건을 선별해 정리했습니다. WCAG 2.1 AA 기준을 적용 기준으로 삼았으며, 개선 전후를 코드 단위로 기록했습니다.</p>
+      </div>
+    </div>
+
+    <div class="grid-cell section-side">
+      <div class="card-stats">
+        <div class="stat-item" role="text" aria-label="실무 개선 경험 10건 이상">
+          <span class="stat-value" aria-hidden="true">10+</span>
+          <span class="stat-label" aria-hidden="true">실무 개선 경험</span>
+        </div>
+        <div class="stat-item" role="text" aria-label="WA 인증 갱신 5회">
+          <span class="stat-value" aria-hidden="true">5회</span>
+          <span class="stat-label" aria-hidden="true">WA 인증 갱신</span>
+        </div>
+        <div class="stat-item" role="text" aria-label="WCAG 2.1 AA 준수">
+          <span class="stat-value" aria-hidden="true">WCAG</span>
+          <span class="stat-label" aria-hidden="true">2.1 AA 준수</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- case -->
+    <!-- ============ CASE 01 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 01">
+      <div class="label-content">
+        <h2>CASE 01</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">이미지 대체 텍스트 — WCAG 1.1.1 / Level A</span>
+        <h3 class="case-title-sm" aria-label="의미 있는 이미지에 alt 속성이 없거나, 파일명이 그대로 노출되고 있었습니다."><span aria-hidden="true">의미 있는 이미지에 alt 속성이 없거나,<br>파일명이 그대로 노출되고 있었습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;!-- alt 없음 --&gt;
+    &lt;img src="banner_main.jpg"&gt;
+
+    &lt;!-- 의미 없는 alt --&gt;
+    &lt;img src="event.jpg"
+        alt="이미지"&gt;
+
+    &lt;!-- 장식용인데 alt 없음 --&gt;
+    &lt;img src="divider.png"&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;!-- 이미지 내용을 구체적으로 설명 --&gt;
+    &lt;img src="banner_main.jpg"
+        alt="5G 요금제 여름 특가, 최대 50% 할인"&gt;
+
+    &lt;!-- 맥락에 맞는 구체적 alt --&gt;
+    &lt;img src="event.jpg"
+        alt="7월 한정 요금제 출시 이벤트"&gt;
+
+    &lt;!-- 장식용은 alt="" 빈 값 처리 --&gt;
+    &lt;img src="divider.png"
+        alt="" role="presentation"&gt;</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">스크린리더는 alt 값을 그대로 읽습니다. alt가 없으면 파일명을 읽거나 건너뛰어 정보가 누락되고, "이미지"처럼 의미 없는 값은 정보를 전달하지 못합니다. 의미 있는 이미지는 내용을 설명하고, 장식용은 alt=""로 처리해 스크린리더가 건너뛰게 해야 합니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- ============ CASE 02 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 02">
+      <div class="label-content">
+        <h2>CASE 02</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">버튼 레이블 및 type 속성 — WCAG 4.1.2 / Level A</span>
+        <h3 class="case-title-sm" aria-label="아이콘 버튼에 레이블이 없고, type 누락으로 의도치 않은 submit이 발생했습니다."><span aria-hidden="true">아이콘 버튼에 레이블이 없고,<br>type 누락으로 의도치 않은 submit이 발생했습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;!-- type 없음 + 레이블 없는 아이콘 버튼 --&gt;
+    &lt;button class="btn-close"&gt;
+      &lt;img src="icon-close.svg" alt=""&gt;
+    &lt;/button&gt;
+
+    &lt;!-- 맥락 없는 "더보기" 반복 --&gt;
+    &lt;button&gt;더보기&lt;/button&gt;
+    &lt;button&gt;더보기&lt;/button&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;!-- type + aria-label 명시 --&gt;
+    &lt;button type="button"
+            class="btn-close"
+            aria-label="팝업 닫기"&gt;
+      &lt;img src="icon-close.svg" alt=""&gt;
+    &lt;/button&gt;
+
+    &lt;!-- 맥락을 담은 aria-label --&gt;
+    &lt;button type="button"
+            aria-label="5G 요금제 더보기"&gt;
+      더보기
+    &lt;/button&gt;
+    &lt;button type="button"
+            aria-label="인터넷 요금제 더보기"&gt;
+      더보기
+    &lt;/button&gt;</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">type="button"을 명시하지 않으면 폼 내부에서 submit으로 동작할 수 있습니다. 아이콘만 있는 버튼은 스크린리더가 기능을 읽지 못하므로 aria-label로 목적을 명확히 전달해야 합니다. "더보기"가 반복될 때도 각각 aria-label로 맥락을 구분해줘야 합니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- ============ CASE 03 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 03">
+      <div class="label-content">
+        <h2>CASE 03</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">키보드 내비게이션 — WCAG 2.1.1 / Level A</span>
+        <h3 class="case-title-sm" aria-label="모달이 열릴 때 포커스가 이동되지 않아 키보드 사용자가 모달을 사용할 수 없었습니다."><span aria-hidden="true">모달이 열릴 때 포커스가 이동되지 않아<br>키보드 사용자가 모달을 사용할 수 없었습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;!-- 포커스 이동 없음 --&gt;
+    &lt;div class="modal" id="modal"&gt;
+      모달 내용
+      &lt;button&gt;닫기&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+    function openModal() {
+      document.getElementById('modal')
+        .style.display = 'block';
+    }
+    &lt;/script&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;!-- role + aria 속성 + 포커스 이동 --&gt;
+    &lt;div class="modal" id="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"&gt;
+      &lt;h2 id="modal-title"
+          tabindex="-1"&gt;제목&lt;/h2&gt;
+      &lt;button type="button"
+              aria-label="모달 닫기"&gt;닫기&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+    function openModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'block';
+      modal.querySelector('#modal-title').focus();
+    }
+    &lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">모달이 열릴 때 포커스가 이동되지 않으면 키보드 사용자는 모달 뒤 배경 콘텐츠를 계속 탐색하게 됩니다. role="dialog"와 aria-modal="true"로 보조 기술에 모달임을 알리고, 열릴 때 포커스를 내부로 이동시켜야 합니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- ============ CASE 04 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 04">
+      <div class="label-content">
+        <h2>CASE 04</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">폼 레이블 연결 — WCAG 1.3.1 / Level A</span>
+        <h3 class="case-title-sm" aria-label="입력 필드와 레이블이 연결되지 않아 스크린리더가 어떤 필드인지 안내하지 못했습니다."><span aria-hidden="true">입력 필드와 레이블이 연결되지 않아<br>스크린리더가 어떤 필드인지 안내하지 못했습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;!-- span으로 레이블 처리 --&gt;
+    &lt;div class="form-group"&gt;
+      &lt;span class="label"&gt;이름&lt;/span&gt;
+      &lt;input type="text"
+            placeholder="이름을 입력하세요"&gt;
+    &lt;/div&gt;
+
+    &lt;!-- placeholder만 있고 label 없음 --&gt;
+    &lt;input type="email"
+          placeholder="이메일 주소"&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;!-- for-id로 label과 input 연결 --&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label for="input-name"&gt;이름&lt;/label&gt;
+      &lt;input type="text"
+            id="input-name"
+            placeholder="홍길동"&gt;
+    &lt;/div&gt;
+
+    &lt;!-- label + placeholder 함께 제공 --&gt;
+    &lt;label for="input-email"&gt;이메일&lt;/label&gt;
+    &lt;input type="email"
+          id="input-email"
+          placeholder="example@email.com"&gt;</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">placeholder는 입력하면 사라지기 때문에 레이블을 대체할 수 없습니다. label for와 input id를 연결하면 스크린리더가 필드 진입 시 레이블을 읽어주고, 레이블 클릭 시 해당 필드로 포커스가 이동합니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- ============ CASE 05 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 05">
+      <div class="label-content">
+        <h2>CASE 05</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">숨김 텍스트 — WCAG 1.3.1 / Level A</span>
+        <h3 class="case-title-sm" aria-label="display:none으로 처리한 텍스트는 스크린리더에서도 읽히지 않았습니다."><span aria-hidden="true">display:none으로 처리한 텍스트는<br>스크린리더에서도 읽히지 않았습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;style&gt;
+      .hidden { display: none; }
+    &lt;/style&gt;
+
+    &lt;!-- 스크린리더도 못 읽음 --&gt;
+    &lt;a href="/cart"&gt;
+      &lt;img src="icon-cart.svg" alt=""&gt;
+      &lt;span class="hidden"&gt;장바구니&lt;/span&gt;
+    &lt;/a&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;style&gt;
+      .visually-hidden {
+        position: absolute;
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        white-space: nowrap;
+        border: 0;
+      }
+    &lt;/style&gt;
+
+    &lt;!-- 화면엔 숨기고 보조기술엔 전달 --&gt;
+    &lt;a href="/cart"&gt;
+      &lt;img src="icon-cart.svg" alt=""&gt;
+      &lt;span class="visually-hidden"&gt;장바구니&lt;/span&gt;
+    &lt;/a&gt;</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">display:none은 스크린리더에서도 콘텐츠를 숨깁니다. visually-hidden은 시각적으로 보이지 않지만 DOM에 존재해 보조 기술이 읽을 수 있습니다. 아이콘 링크, 건너뛰기 링크 등에 필수로 사용합니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- ============ CASE 06 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 06">
+      <div class="label-content">
+        <h2>CASE 06</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">툴팁 — WCAG 1.3.1 / Level A</span>
+        <h3 class="case-title-sm" aria-label="hover로만 표시되는 툴팁은 키보드 사용자에게 전달되지 않았습니다."><span aria-hidden="true">hover로만 표시되는 툴팁은<br>키보드 사용자에게 전달되지 않았습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;!-- hover CSS만으로 툴팁 처리 --&gt;
+    &lt;div class="tooltip-wrap"&gt;
+      &lt;button type="button"&gt;?&lt;/button&gt;
+      &lt;span class="tooltip"&gt;
+        요금제 상세 안내입니다.
+      &lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;style&gt;
+      .tooltip { display: none; }
+      .tooltip-wrap:hover .tooltip {
+        display: block;
+      }
+    &lt;/style&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;!-- aria-describedby + role="tooltip" --&gt;
+    &lt;div class="tooltip-wrap"&gt;
+      &lt;button type="button"
+              aria-label="요금제 안내"
+              aria-describedby="tooltip-plan"&gt;
+        ?
+      &lt;/button&gt;
+      &lt;span id="tooltip-plan"
+            role="tooltip"&gt;
+        요금제 상세 안내입니다.
+      &lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;style&gt;
+      /* hover + focus-within 모두 대응 */
+      .tooltip-wrap:hover .tooltip,
+      .tooltip-wrap:focus-within .tooltip {
+        display: block;
+      }
+    &lt;/style&gt;</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">hover로만 표시되는 툴팁은 키보드 포커스 시에도 표시되어야 합니다. aria-describedby로 버튼과 툴팁을 연결하면 스크린리더가 버튼 포커스 시 툴팁 내용을 함께 읽어줍니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- ============ CASE 07 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 07">
+      <div class="label-content">
+        <h2>CASE 07</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">탭 UI — WCAG 4.1.2 / Level A</span>
+        <h3 class="case-title-sm" aria-label="div와 button만으로 구현된 탭은 스크린리더가 탭 구조임을 인식하지 못했습니다."><span aria-hidden="true">div와 button만으로 구현된 탭은<br>스크린리더가 탭 구조임을 인식하지 못했습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;!-- div/button만으로 탭 구현 --&gt;
+    &lt;div class="tab-list"&gt;
+      &lt;button class="tab active"&gt;
+        5G 요금제
+      &lt;/button&gt;
+      &lt;button class="tab"&gt;
+        LTE 요금제
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="tab-panel"&gt;
+      5G 요금제 내용
+    &lt;/div&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;!-- ARIA role로 탭 구조 명시 --&gt;
+    &lt;div role="tablist"
+        aria-label="요금제 종류"&gt;
+      &lt;button type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-5g"&gt;
+        5G 요금제
+      &lt;/button&gt;
+      &lt;button type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-lte"&gt;
+        LTE 요금제
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id="panel-5g"
+        role="tabpanel"&gt;
+      5G 요금제 내용
+    &lt;/div&gt;</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">role="tablist/tab/tabpanel"을 함께 사용하면 스크린리더가 "탭 1/2, 선택됨"과 같이 구조를 안내합니다. aria-selected로 현재 선택된 탭을, aria-controls로 연결된 패널을 명시합니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- ============ CASE 08 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 08">
+      <div class="label-content">
+        <h2>CASE 08</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">아코디언 — WCAG 4.1.2 / Level A</span>
+        <h3 class="case-title-sm" aria-label="아코디언 열림/닫힘 상태가 시각적으로만 표현되어 스크린리더 사용자는 현재 상태를 알 수 없었습니다."><span aria-hidden="true">아코디언 열림/닫힘 상태가 시각적으로만 표현되어<br>스크린리더 사용자는 현재 상태를 알 수 없었습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;!-- 열림/닫힘 상태 전달 없음 --&gt;
+    &lt;div class="accordion"&gt;
+      &lt;button type="button"
+              class="accordion-btn"&gt;
+        자주 묻는 질문
+      &lt;/button&gt;
+      &lt;div class="accordion-panel"&gt;
+        답변 내용
+      &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;!-- aria-expanded + aria-controls --&gt;
+    &lt;div class="accordion"&gt;
+      &lt;button type="button"
+              class="accordion-btn"
+              aria-expanded="false"
+              aria-controls="faq-panel-1"&gt;
+        자주 묻는 질문
+      &lt;/button&gt;
+      &lt;div id="faq-panel-1" hidden&gt;
+        답변 내용
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- JS: 클릭 시 상태 토글 --&gt;
+    btn.setAttribute('aria-expanded', 'true');
+    panel.removeAttribute('hidden');</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">aria-expanded="false/true"로 열림/닫힘 상태를 보조 기술에 전달합니다. 패널은 hidden 속성으로 제어하면 스크린리더도 닫힌 상태에서는 내용을 읽지 않습니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- ============ CASE 09 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 09">
+      <div class="label-content">
+        <h2>CASE 09</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">테이블 접근성 — WCAG 1.3.1 / Level A</span>
+        <h3 class="case-title-sm" aria-label="caption, scope, thead가 없어 스크린리더가 셀과 헤더의 관계를 파악하지 못했습니다."><span aria-hidden="true">caption, scope, thead가 없어<br>스크린리더가 셀과 헤더의 관계를 파악하지 못했습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;!-- caption, scope, thead 없음 --&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;요금제명&lt;/td&gt;
+        &lt;td&gt;월정액&lt;/td&gt;
+        &lt;td&gt;데이터&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;5G 베이직&lt;/td&gt;
+        &lt;td&gt;55,000원&lt;/td&gt;
+        &lt;td&gt;10GB&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;!-- caption + thead + scope 적용 --&gt;
+    &lt;table&gt;
+      &lt;caption&gt;5G 요금제 비교표&lt;/caption&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col"&gt;요금제명&lt;/th&gt;
+          &lt;th scope="col"&gt;월정액&lt;/th&gt;
+          &lt;th scope="col"&gt;데이터&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;5G 베이직&lt;/td&gt;
+          &lt;td&gt;55,000원&lt;/td&gt;
+          &lt;td&gt;10GB&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">caption은 테이블 제목을 스크린리더에 전달하고, scope="col/row"는 헤더 셀이 어느 방향의 데이터를 설명하는지 명시합니다. thead/tbody 구분으로 구조도 명확해집니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- ============ CASE 10 ============ -->
+    <section class="grid-cell section-label" aria-label="Case 10">
+      <div class="label-content">
+        <h2>CASE 10</h2>
+      </div>
+    </section>
+    <div class="grid-cell section-content case-content">
+      <div class="case-header">
+        <span class="case-tag">팝업 vs 페이지 이동 링크 구분 — WCAG 3.2.2 / Level A</span>
+        <h3 class="case-title-sm" aria-label="새 창 링크와 팝업, 페이지 이동이 동일한 형태로 사용자가 컨텍스트 전환을 예측할 수 없었습니다."><span aria-hidden="true">새 창 링크와 팝업, 페이지 이동이 동일한 형태로<br>사용자가 컨텍스트 전환을 예측할 수 없었습니다.</span></h3>
+      </div>
+      <div class="before-after">
+        <div class="ba-block">
+          <span class="ba-label">BEFORE</span>
+          <pre class="code-block"><code>&lt;!-- 새 창 안내 없음 --&gt;
+    &lt;a href="https://external.com"
+      target="_blank"&gt;
+      요금제 안내 바로가기
+    &lt;/a&gt;
+
+    &lt;!-- 팝업과 페이지 이동이 같은 형태 --&gt;
+    &lt;a href="#"
+      onclick="openPopup()"&gt;
+      자세히 보기
+    &lt;/a&gt;
+    &lt;a href="#section-plan"&gt;
+      자세히 보기
+    &lt;/a&gt;</code></pre>
+        </div>
+        <div class="ba-block">
+          <span class="ba-label">AFTER</span>
+          <pre class="code-block"><code>&lt;!-- 새 창: visually-hidden으로 안내 --&gt;
+    &lt;a href="https://external.com"
+      target="_blank"&gt;
+      요금제 안내 바로가기
+      &lt;span class="visually-hidden"&gt;
+        (새 창으로 열림)
+      &lt;/span&gt;
+    &lt;/a&gt;
+
+    &lt;!-- 팝업: button으로 명확히 구분 --&gt;
+    &lt;button type="button"
+            aria-haspopup="dialog"&gt;
+      팝업으로 자세히 보기
+    &lt;/button&gt;
+
+    &lt;!-- 페이지 이동: 앵커 id 연결 --&gt;
+    &lt;a href="#section-plan"&gt;
+      요금제 자세히 보기
+    &lt;/a&gt;</code></pre>
+        </div>
+      </div>
+      <p class="case-desc">페이지 이동은 a href, 팝업 호출은 button으로 구분하는 것이 원칙입니다. 새 창은 visually-hidden으로 사전 안내하고, aria-haspopup="dialog"로 팝업 호출임을 명시합니다.</p>
+    </div>
+    <div class="grid-cell empty-cell"></div>
+
+    <!-- nav btn -->
+    <nav class="grid-cell navigate-bar" aria-label="페이지 이동">
+      <div class="contact-links" data-reveal>
+        <a href="index.html" class="menu-item" aria-label="인덱스로 돌아가기"><span aria-hidden="true">← INDEX</span></a>
+        <a href="operation.html" class="menu-item" aria-label="다음 케이스로 이동"><span aria-hidden="true">NEXT CASE ↗</span></a>
+      </div>
+    </nav>
+
+  </main>
+
+  <button class="top-btn" aria-label="맨 위로 이동">↑</button>
+
+  <script src="assets/js/reveal.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>

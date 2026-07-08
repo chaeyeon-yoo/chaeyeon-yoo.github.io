@@ -1,224 +1,34 @@
-/* hero — layout.css의 .hero(전체화면)를 일반 섹션으로 override */
-.a11y-hero {
-  min-height: unset;
-  display: block;
-  padding: 8rem 3rem 5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.a11y-hero .hero-title {
-  font-size: clamp(2.2rem, 5vw, 4.2rem);
-  line-height: 1;
-  margin-bottom: 1.25rem;
-  opacity: 1;
-  animation: none;
-}
-.a11y-hero .hero-desc {
-  font-size: 1rem;
-  max-width: 560px;
-  line-height: 1.8;
-  margin-bottom: 2.5rem;
-  opacity: 1;
-  animation: none;
-}
+/* ======== a11y ======== */
+/* ---- BEFORE / AFTER ---- */
 
-.ba-grid {
+.before-after {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
-.summary-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 3rem 6rem;
-}
-
-.wcag-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 0.25rem 0.6rem;
-  margin-top: 0.6rem;
-}
-
-/* BEFORE / AFTER */
-.ba-card {
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-.ba-label {
+.ba-block {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.ba-card.before .ba-label {
-  background: var(--bad-bg);
-  color: var(--bad);
-  border: 1px solid var(--bad-border);
-  border-bottom: none;
-}
-.ba-card.after .ba-label {
-  background: var(--good-bg);
-  color: var(--good);
-  border: 1px solid var(--good-border);
-  border-bottom: none;
-}
-.ba-label-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: currentColor;
-}
-.ba-code {
-  margin: 0;
-  padding: 1.25rem;
-  background: var(--code-bg);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  line-height: 1.7;
-  overflow-x: auto;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  color: #fff;
-}
-.ba-card.before .ba-code {
-  border-top: 2px solid var(--bad);
-}
-.ba-card.after .ba-code {
-  border-top: 2px solid var(--good);
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0; /* grid item 기본값(min-width:auto)이 code-block 내용만큼 넓어지는 것 방지 */
 }
 
-/* REASON BOX */
-.reason-box {
-  background: var(--good-bg);
-  border: 1px solid var(--good-border);
-  border-left: 3px solid var(--accent);
-  padding: 1.25rem 1.5rem;
-  border-radius: 0 0.4rem 0.4rem 0;
-}
-.reason-title {
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-.reason-desc {
-  font-size: 0.85rem;
-  color: var(--color-text);
-  line-height: 1.7;
-  font-weight: 300;
-}
-.reason-desc strong {
-  font-weight: 500;
-  color: var(--accent);
-}
-
-/* SUMMARY TABLE */
-.summary-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-}
-.summary-title .hi {
-  color: var(--accent);
-}
-.summary-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  border: 1px solid var(--color-border);
-}
-.summary-table th {
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-  font-weight: 700;
-  padding: 1rem 1.25rem;
-  text-align: left;
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-surface);
-}
-.summary-table td {
-  font-size: 0.85rem;
-  color: var(--color-text);
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--color-border);
-  line-height: 1.5;
-  vertical-align: top;
-}
-.summary-table tr:last-child td {
-  border-bottom: none;
-}
-.summary-table tr:hover td {
-  background: var(--accent-soft);
-}
-.badge {
+.ba-label {
   display: inline-block;
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 0.2rem 0.55rem;
-  border-radius: 2rem;
-}
-.badge.level-a {
-  background: #fef3c7;
-  color: #92400e;
-}
-.badge.level-aa {
-  background: var(--good-bg);
-  color: var(--good);
+  align-self: flex-start; /* flex 컨테이너 안에서 배지가 전체 너비로 늘어나지 않도록 */
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  /* i-tag와 동일한 옅은 필박스 톤 (BEFORE: 중립 회색, 대비 약 5.5:1) */
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--text-muted);
 }
 
-/* 반응형 */
-@media (max-width: 768px) {
-  .a11y-hero {
-    padding: 7rem 1.5rem 3rem;
-  }
-  .cases {
-    padding: 3rem 1.5rem 4rem;
-  }
-  .ba-grid {
-    grid-template-columns: 1fr;
-  }
-  .summary-wrap {
-    padding: 3rem 1.5rem 4rem;
-  }
-  .back-section {
-    padding: 0 1.5rem 4rem;
-  }
-  .case-header {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .summary-table th:nth-child(3),
-  .summary-table td:nth-child(3) {
-    display: none;
-  }
-  .summary-table th:nth-child(5),
-  .summary-table td:nth-child(5) {
-    display: none;
-  }
+.ba-block:last-child .ba-label {
+  /* AFTER: 연한 민트그린 + 어두운 그린 텍스트 (대비 약 4.74:1) */
+  background-color: var(--accent-neon-bg);
+  color: var(--accent-neon-text);
 }
+

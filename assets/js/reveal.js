@@ -1,55 +1,82 @@
-const reveals = document.querySelectorAll(".reveal");
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting)
-        setTimeout(() => e.target.classList.add("visible"), i * 80);
-    });
-  },
-  { threshold: 0.08 },
-);
-reveals.forEach((el) => observer.observe(el));
+// ============================================
+// REVEAL ON SCROLL
+// .bento-item, [data-reveal] 등 스크롤 진입 시 등장
+// ============================================
 
-/* TOP BUTTON */
-const topBtn = document.getElementById("topBtn");
-const workSection = document.getElementById("work");
+document.addEventListener('DOMContentLoaded', () => {
+  const revealTargets = document.querySelectorAll('.bento-item, [data-reveal]');
 
-if (topBtn) {
-  // 1. 메인 페이지 (section 으로 구분)
-  if (workSection) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            topBtn.classList.add("visible");
-          } else {
-            const rect = workSection.getBoundingClientRect();
-            if (rect.top > 0) {
-              topBtn.classList.remove("visible");
-            }
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
+  if (!revealTargets.length) return;
 
-    observer.observe(workSection);
-  }
-  // 2. 프로젝트 페이지 (section id 없음)
-  else {
-    const trigger = parseInt(topBtn.dataset.scrollTrigger) || 300; // 값이 없을 시 300
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > trigger) {
-        topBtn.classList.add("visible");
-      } else {
-        topBtn.classList.remove("visible");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${i * 80}ms`;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
       }
     });
-  }
+  }, { threshold: 0.2 });
 
-  // 클릭 이벤트 (공통)
-  topBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  revealTargets.forEach((el) => observer.observe(el));
+});
+
+// ============================================
+// COUNT UP STATS
+// .stat-value가 숫자로 시작하면(10+, 5회, 100% 등) 스크롤 진입 시 0부터 카운트업
+// WCAG, 2Y 10M 처럼 숫자로 딱 떨어지지 않는 값은 그대로 둠
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const statValues = document.querySelectorAll('.stat-value');
+
+  if (!statValues.length) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const animateCount = (el, target, suffix, duration = 900) => {
+    const start = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      el.textContent = `${Math.floor(progress * target)}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = `${target}${suffix}`;
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  const targets = [];
+
+  statValues.forEach((el) => {
+    const match = el.textContent.trim().match(/^(\d+)(\D*)$/);
+    if (!match || prefersReducedMotion) return;
+
+    const target = parseInt(match[1], 10);
+    const suffix = match[2];
+
+    el.textContent = `0${suffix}`;
+    targets.push({ el, target, suffix });
   });
-}
+
+  if (!targets.length) return;
+
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const matched = targets.find((t) => t.el === entry.target);
+      if (matched) {
+        animateCount(matched.el, matched.target, matched.suffix);
+      }
+      statObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.4 });
+
+  targets.forEach(({ el }) => statObserver.observe(el));
+});
