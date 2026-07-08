@@ -132,10 +132,10 @@
 
     &lt;!-- 장식용은 alt="" 빈 값 처리 --&gt;
     &lt;img src="divider.png"
-        alt="" role="presentation"&gt;</code></pre>
+        alt=""&gt;</code></pre>
         </div>
       </div>
-      <p class="case-desc">스크린리더는 alt 값을 그대로 읽습니다. alt가 없으면 파일명을 읽거나 건너뛰어 정보가 누락되고, "이미지"처럼 의미 없는 값은 정보를 전달하지 못합니다. 의미 있는 이미지는 내용을 설명하고, 장식용은 alt=""로 처리해 스크린리더가 건너뛰게 해야 합니다.</p>
+      <p class="case-desc">스크린리더는 alt 값을 그대로 읽습니다. alt가 없으면 파일명을 읽거나 건너뛰어 정보가 누락되고, "이미지"처럼 의미 없는 값은 정보를 전달하지 못합니다. 의미 있는 이미지는 내용을 설명하고, 장식용은 alt=""로 처리해 스크린리더가 건너뛰게 해야 합니다. WA 인증 심사에서 지적받아 발견한 항목이라, 이후로는 같은 패턴의 이미지 마크업을 작업할 때 셀프 점검으로 먼저 반영했습니다.</p>
     </div>
     <div class="grid-cell empty-cell"></div>
 
@@ -281,7 +281,7 @@
           placeholder="example@email.com"&gt;</code></pre>
         </div>
       </div>
-      <p class="case-desc">placeholder는 입력하면 사라지기 때문에 레이블을 대체할 수 없습니다. label for와 input id를 연결하면 스크린리더가 필드 진입 시 레이블을 읽어주고, 레이블 클릭 시 해당 필드로 포커스가 이동합니다.</p>
+      <p class="case-desc">placeholder는 입력하면 사라지기 때문에 레이블을 대체할 수 없습니다. label for와 input id를 연결하면 스크린리더가 필드 진입 시 레이블을 읽어주고, 레이블 클릭 시 해당 필드로 포커스가 이동합니다. 이 역시 인증 심사에서 지적된 항목이었고, 운영 중인 화면이라 구조를 바꾸지 않고 label/for 속성만으로 해결해야 했습니다.</p>
     </div>
     <div class="grid-cell empty-cell"></div>
 
@@ -342,7 +342,7 @@
     </section>
     <div class="grid-cell section-content case-content">
       <div class="case-header">
-        <span class="case-tag">툴팁 — WCAG 1.3.1 / Level A</span>
+        <span class="case-tag">툴팁 — WCAG 1.4.13 / Level AA</span>
         <h3 class="case-title-sm" aria-label="hover로만 표시되는 툴팁은 키보드 사용자에게 전달되지 않았습니다."><span aria-hidden="true">hover로만 표시되는 툴팁은<br>키보드 사용자에게 전달되지 않았습니다.</span></h3>
       </div>
       <div class="before-after">
@@ -384,10 +384,19 @@
       .tooltip-wrap:focus-within .tooltip {
         display: block;
       }
-    &lt;/style&gt;</code></pre>
+    &lt;/style&gt;
+
+    &lt;script&gt;
+      // Esc로 닫기 가능 (WCAG 1.4.13 dismissible)
+      document.querySelectorAll('.tooltip-wrap button').forEach((btn) => {
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') btn.blur();
+        });
+      });
+    &lt;/script&gt;</code></pre>
         </div>
       </div>
-      <p class="case-desc">hover로만 표시되는 툴팁은 키보드 포커스 시에도 표시되어야 합니다. aria-describedby로 버튼과 툴팁을 연결하면 스크린리더가 버튼 포커스 시 툴팁 내용을 함께 읽어줍니다.</p>
+      <p class="case-desc">hover로만 표시되는 툴팁은 키보드 포커스 시에도 표시되어야 합니다. aria-describedby로 버튼과 툴팁을 연결하면 스크린리더가 버튼 포커스 시 툴팁 내용을 함께 읽어주고, Esc 키로 닫을 수 있게 해 포커스가 남아 있어도 툴팁을 걷어낼 수 있게 했습니다. 유사한 상호작용 이슈를 이미 겪어본 뒤라, 이번엔 심사 지적 전에 셀프 점검으로 먼저 반영했습니다.</p>
     </div>
     <div class="grid-cell empty-cell"></div>
 
@@ -545,7 +554,7 @@
     &lt;/table&gt;</code></pre>
         </div>
       </div>
-      <p class="case-desc">caption은 테이블 제목을 스크린리더에 전달하고, scope="col/row"는 헤더 셀이 어느 방향의 데이터를 설명하는지 명시합니다. thead/tbody 구분으로 구조도 명확해집니다.</p>
+      <p class="case-desc">caption은 테이블 제목을 스크린리더에 전달하고, scope="col/row"는 헤더 셀이 어느 방향의 데이터를 설명하는지 명시합니다. thead/tbody 구분으로 구조도 명확해집니다. 운영 중인 화면이라 테이블 구조를 새로 짜기보다 caption/scope 속성 추가로 해결하는 방향을 택했습니다.</p>
     </div>
     <div class="grid-cell empty-cell"></div>
 
@@ -609,7 +618,7 @@
     <nav class="grid-cell navigate-bar" aria-label="페이지 이동">
       <div class="contact-links" data-reveal>
         <a href="index.html" class="menu-item" aria-label="인덱스로 돌아가기"><span aria-hidden="true">← INDEX</span></a>
-        <a href="operation.html" class="menu-item" aria-label="다음 케이스로 이동"><span aria-hidden="true">NEXT CASE ↗</span></a>
+        <a href="operation.html" class="menu-item" aria-label="다음 케이스로 이동"><span aria-hidden="true">NEXT CASE →</span></a>
       </div>
     </nav>
 
