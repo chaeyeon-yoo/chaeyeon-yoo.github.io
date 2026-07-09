@@ -38,7 +38,7 @@ SK텔레콤 T world 서비스를 2년 10개월간 운영하며, 단순히 화면
 ### ♿ A11y (Accessibility)
 > 운영 프로젝트에서 직접 적용한 웹 접근성 개선 사례 10건
 
-- WCAG 2.1 AA 기준 적용, Before / After 형식으로 정리
+- WCAG 2.1 Level A 기준 적용, Before / After 형식으로 정리
 - 시맨틱 태그, ARIA 속성, 키보드 포커스 관리 등 실제 개선 코드 수록
 - 📂 https://chaeyeon-yoo.github.io/a11y.html
 
