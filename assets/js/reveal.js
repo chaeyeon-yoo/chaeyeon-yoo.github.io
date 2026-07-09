@@ -1,12 +1,22 @@
 // ============================================
 // REVEAL ON SCROLL
-// .bento-item, [data-reveal] 등 스크롤 진입 시 등장
+// [data-reveal] 요소가 스크롤 진입 시 등장 (prefers-reduced-motion 시 즉시 노출)
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  const revealTargets = document.querySelectorAll('.bento-item, [data-reveal]');
+  const revealTargets = document.querySelectorAll('[data-reveal]');
 
   if (!revealTargets.length) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    revealTargets.forEach((el) => {
+      el.style.transition = 'none';
+      el.classList.add('is-visible');
+    });
+    return;
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
