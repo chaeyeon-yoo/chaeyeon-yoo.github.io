@@ -4,6 +4,7 @@ import './styles/reset.css'
 import './styles/token.css'
 import './styles/grid.css'
 import './styles/common.css'
+import './styles/layout.css'
 import './styles/operation.css'
 import App from './App.tsx'
 
