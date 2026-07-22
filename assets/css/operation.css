@@ -37,3 +37,12 @@
   color: var(--text-muted);
 }
 
+/* 히어로 meta-list의 DEMO 항목 (React 전환 버전 링크) */
+.demo-link {
+  transition: color 0.2s ease;
+}
+
+.demo-link:hover {
+  color: var(--accent-neon-text);
+}
+
