@@ -33,13 +33,20 @@ jobs:
         run: npm run build
         working-directory: react-operation
 
-      - name: Publish to main:/operation-react
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: react-operation/dist
-          destination_dir: operation-react
-          publish_branch: main
-          keep_files: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+      - name: Copy build output to /operation-react
+        run: |
+          rm -rf operation-react
+          mkdir -p operation-react
+          cp -r react-operation/dist/. operation-react/
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add operation-react
+          if git diff --cached --quiet; then
+            echo "No changes to deploy"
+          else
+            git commit -m "chore: react-operation 빌드 결과물 자동 배포"
+            git push
+          fi
