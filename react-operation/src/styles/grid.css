@@ -1,0 +1,38 @@
+/* ======== grid ======== */
+.main-portfolio-container {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr 1.3fr; /* 3열 비율 */
+  gap: 1px;
+  background-color: var(--grid-line);
+  width: 100%;
+}
+
+.grid-cell {
+  background-color: var(--bg-color);
+  padding: 50px 40px;
+  overflow-wrap: break-word; /* 긴 단어가 박스를 넘어가면 강제 줄바꿈 */
+  word-break: keep-all;      /* 필요 시 단어 중간에서도 줄바꿈 */
+  min-width: 0; /* pre.code-block 등 긴 콘텐츠가 grid 트랙을 강제로 넓히는 것 방지 */
+}
+
+.grid-cell img {
+  max-width: 100%;    /* 이미지 너비를 부모(cell) 너비로 제한 */
+  height: auto;       /* 비율을 유지하며 높이 자동 조정 */
+  display: block;     /* 하단 여백 제거 및 블록 요소화 */
+}
+
+@media (max-width: 968px) {
+  .main-portfolio-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* 빈 셀 숨기기 */
+  .grid-cell.empty-cell {
+    display: none;
+  }
+
+  /* 모바일 기본 패딩 (더 구체적인 규칙이 있으면 그쪽이 우선) */
+  .grid-cell {
+    padding: 40px 20px;
+  }
+}

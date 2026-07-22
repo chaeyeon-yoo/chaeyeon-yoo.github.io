@@ -1,0 +1,22 @@
+/* ======== token ======== */
+:root {
+  /* 1번 테크니컬 오트밀 테마 */
+  --bg-color: #F4F1EA;
+  --grid-line: #1E1E24;
+  --text-main: #1E1E24;
+  --text-muted: #5A5A62;
+
+  /* 포인트 컬러 (네온 그린) */
+  --accent-neon: #00E676;
+  /* 크림색 배경 위 텍스트 전용 (accent-neon은 명도대비 실패, AA 4.5:1 통과) */
+  --accent-neon-text: #007A43;
+  /* accent-neon-text와 짝을 이루는 연한 배경 (필박스용) */
+  --accent-neon-bg: #DDF5E7;
+
+  /* 벤토 카드용 토큰 */
+  --card-bg: #FFFFFF;
+  --card-radius: 16px;
+
+  /* 서체 토큰 */
+  --font-main: 'Pretendard', -apple-system, sans-serif;
+}

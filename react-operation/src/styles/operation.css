@@ -1,0 +1,39 @@
+/* OVERVIEW: 담당업무/협업방식 요약이 bio-columns 바로 아래 이어지므로 2단 대신 1단으로 */
+.bio-columns {
+  column-count: 1;
+}
+
+/* 케이스 내 기술 태그 (a11y의 inner-tags와 동일 용도, 상단 배치) */
+.op-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* 담당업무/협업방식 요약 블록 (OVERVIEW 하단) */
+.op-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--grid-line);
+}
+
+.op-summary-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.op-summary-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+

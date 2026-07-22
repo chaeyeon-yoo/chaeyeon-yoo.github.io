@@ -1,0 +1,714 @@
+/* ======== common ======== */
+/* 시각적으로는 숨기고 스크린리더에는 전달 (a11y.html CASE 05와 동일한 패턴) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 1000;
+  padding: 12px 20px;
+  background-color: var(--text-main);
+  color: var(--bg-color);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* reading progress bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent-neon);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.1s linear;
+  z-index: 1000;
+  will-change: transform;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-main);
+}
+
+/* header */
+.logo-area .logo-text{
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px 40px;
+}
+
+.logo-text {
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+/* nav */
+.nav-area {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0 40px;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--grid-line);
+  transition: background-color 0.25s ease, color 0.2s ease;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item:hover {
+  background-color: var(--accent-neon);
+  color: #000000;
+}
+
+.menu-item span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.menu-item:hover span {
+  transform: translateX(5px);
+}
+
+/* index/next-case 버튼 (a11y·operation 페이지 하단 NAVIGATE) : 3열을 합친 풀와이드 바 */
+.navigate-bar {
+  grid-column: 1 / -1;
+  padding: 40px;
+  padding-bottom: 140px; /* 우하단 고정된 top-btn(약 103px 구간)과 안 겹치도록 여유 확보 */
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* ← INDEX는 왼쪽, NEXT/PREV CASE는 오른쪽 */
+  gap: 16px;
+}
+
+.contact-links .menu-item,
+.contact-links .menu-item:last-child {
+  flex: none;
+  justify-content: center;
+  padding: 14px 28px;
+  border: 1px solid var(--grid-line);
+  border-radius: 4px;
+}
+
+/* footer */
+.contact-footer-area {
+  grid-column: 1 / -1; /* 1번째 열부터 마지막 열 끝까지 채움 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 40px 30px 40px;
+  background-color: var(--bg-color);
+  min-height: 450px;
+}
+
+.contact-upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+}
+
+.contact-headline {
+  flex: 1;
+}
+
+.contact-headline .label-num {
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: monospace;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contact-headline h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+  color: var(--text-main);
+}
+
+.contact-sub {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.contact-links-wrap {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-method-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--grid-line);
+  text-decoration: none;
+
+  /* reveal용 초기 상태 */
+  opacity: 0;
+  transform: translateY(16px);
+
+  /* 모든 transition을 한 곳에서 관리 */
+  transition: opacity 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000),
+              transform 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000),
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+}
+
+.contact-method-link:first-child {
+  border-top: 1px solid var(--grid-line);
+}
+
+.contact-links-wrap.is-visible .contact-method-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-links-wrap.is-visible .contact-method-link:nth-child(1) {
+  transition-delay: 0.35s;
+}
+.contact-links-wrap.is-visible .contact-method-link:nth-child(2) {
+  transition-delay: 0.5s;
+}
+
+.method-label {
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.method-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.method-value .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.contact-method-link:hover {
+  padding-left: 10px;
+}
+
+.contact-method-link:hover .method-label {
+  color: var(--text-main);
+}
+
+.contact-method-link:hover .method-value {
+  color: var(--accent-neon-text);
+}
+
+.contact-method-link:hover .method-value .arrow {
+  transform: translate(3px, -3px);
+}
+
+
+
+
+.contact-bottom {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright, .built-with {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: monospace;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* top button */
+.top-btn {
+  position: fixed;
+  bottom: 55px;
+  right: 40px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--grid-line);
+  color: var(--text-main);
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  /* default : 숨김 */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.top-btn:hover {
+  background-color: var(--text-main);
+  color: var(--accent-neon);
+  border-color: var(--text-main);
+  transform: translateY(-4px);
+}
+
+/* 활성화 */
+.top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ======== case detail page (shared) ======== */
+/* header */
+.section-content { grid-column: 2; }
+.section-side    { grid-column: 3; }
+
+.back-link {
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--accent-neon-text);
+}
+
+.case-index-area {
+  display: flex;
+  align-items: flex-start;
+}
+
+.case-index {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* hero */
+.case-title {
+  font-size: clamp(32px, 5vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+.case-hero-area {
+  grid-column: 1 / 3;  /* 1열~2열 span */
+}
+
+.case-hero-meta {
+  display: flex;
+  align-items: flex-start;
+  grid-column: 3;      /* 3열 고정 */
+}
+
+.meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 20px;
+  /* grid-cell 내부 구분선 — grid gap과 무관하게 cell 안쪽에서만 사용 */
+  border-bottom: 1px solid var(--grid-line);
+}
+
+.meta-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.meta-item dt {
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.meta-item dd {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* section label */
+.grid-cell.section-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 50px 40px; /* 기본 .grid-cell과 상단 패딩 통일 (라벨·콘텐츠·사이드 상단 정렬) */
+  background-color: var(--bg-color);
+  overflow: hidden; /* 혹시 모를 레이아웃 튐 방지 */
+}
+
+.grid-cell.section-label .label-num {
+  font-family: monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.grid-cell.section-label h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin: 0;
+  line-height: 1;
+  word-break: keep-all;
+}
+
+.bio-columns {
+  column-count: 2;
+  column-gap: 40px;
+}
+
+.bio-columns p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.card-stats {
+  display: flex;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+/* 벤토카드(메인 PORTFOLIO)에서만 카드 상단 텍스트와의 간격 확보. section-side(포폴 상세)에서는 불필요 */
+.bento-card .card-stats {
+  padding-top: 24px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-main);
+}
+
+.stat-label {
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.i-tag {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* reveal on scroll */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.55s cubic-bezier(0.215, 0.610, 0.355, 1.000),
+              transform 0.55s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  will-change: transform, opacity;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.label-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* data-reveal이 같이 있을 때만 애니메이션 (없으면 항상 보임) */
+[data-reveal].label-content {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-reveal].label-content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* case content */
+.case-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.case-tag {
+  display: inline-block;
+  align-self: flex-start; /* flex 컨테이너 안에서 배지가 전체 너비로 늘어나지 않도록 */
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-neon);
+  background-color: var(--text-main);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.case-title-sm {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-main);
+}
+
+.case-desc {
+  margin-top: 24px;
+  margin-bottom: 24px; /* 뒤에 code-block/op-list/op-summary 등 무엇이 오든 간격 일정하게 유지 (마진 병합) */
+  padding-left: 16px;
+  border-left: 2px solid var(--grid-line);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+
+.code-block {
+  position: relative; /* 복사 버튼 위치 기준 */
+  background-color: var(--text-main);
+  color: #F4F1EA;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 10px;
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #F4F1EA;
+  background-color: rgba(244, 241, 234, 0.1);
+  border: 1px solid rgba(244, 241, 234, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.copy-btn:hover {
+  background-color: rgba(244, 241, 234, 0.2);
+  border-color: rgba(244, 241, 234, 0.5);
+}
+
+.copy-btn.is-copied {
+  background-color: var(--accent-neon);
+  border-color: var(--accent-neon);
+  color: #000000;
+}
+
+/* @@@ 반응형 @@@ */
+@media (max-width: 968px) {
+  .case-title {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+
+  .navigate-bar {
+    padding: 30px 20px;
+    padding-bottom: 90px; /* 모바일 top-btn(약 60px 구간)과 안 겹치도록 여유 확보 */
+  }
+
+  .section-side .stat-value {
+    font-size: 22px;
+  }
+
+  .section-label,
+  .section-content,
+  .section-side,
+  .case-hero-area,
+  .case-hero-meta,
+  .case-index-area {
+    grid-column: 1; /* 전부 리셋 */
+  }
+
+  .grid-cell.section-label {
+    width: 100%;
+    padding: 30px 20px;
+    border-top: 1px solid var(--grid-line);
+    border-right: none; /* PC용 우측 선은 제거 */
+  }
+
+  .grid-cell.section-label h2 {
+    font-size: 1.3rem;
+  }
+
+  .bio-columns {
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  .contact-links .menu-item,
+  .contact-links .menu-item:last-child {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* @@@ 반응형 @@@ */
+@media (max-width: 968px) {
+  .nav-area {
+    flex-direction: row;
+    white-space: nowrap;
+  }
+
+  .nav-area .menu-item {
+    flex: 1;
+    min-width: 0; /* flex item 기본값(min-width:auto)이 nowrap 텍스트 폭만큼 넓어져 가로 스크롤 유발하는 것 방지 */
+    justify-content: center;
+    padding: 14px 4px;
+    font-size: 0.7rem;
+    border-right: 1px solid var(--grid-line);
+    border-bottom: none;
+  }
+
+  .nav-area .menu-item:last-child {
+    border-right: none;
+  }
+
+  .logo-area {
+    padding: 24px 20px;
+  }
+
+  .contact-footer-area {
+    padding: 40px 20px 20px 20px;
+  }
+
+  .contact-upper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-headline h2 {
+    font-size: 2.2rem;
+  }
+
+  .contact-links-wrap {
+    width: 100%;
+  }
+
+  .method-value {
+    font-size: 0.95rem;
+  }
+
+  .contact-bottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
