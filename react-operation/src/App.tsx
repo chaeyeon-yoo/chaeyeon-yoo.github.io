@@ -14,7 +14,7 @@ function App() {
         본문 바로가기
       </a>
       <ReadingProgress />
-      <main className="main-portfolio-container" id="main-content">
+      <main className="main-portfolio-container" id="main-content" tabIndex={-1}>
         <PageHeader />
         <Hero />
         <Overview />
