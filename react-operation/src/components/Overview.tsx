@@ -9,7 +9,7 @@ export function Overview() {
 
   return (
     <>
-      <section className="grid-cell section-label" aria-label="Overview">
+      <section className="grid-cell section-label">
         <div
           ref={label.ref}
           data-reveal

@@ -7,7 +7,7 @@ export function CaseSection({ data, index }: { data: CaseItem; index: number }) 
 
   return (
     <>
-      <section className="grid-cell section-label" aria-label={`Case ${label}`}>
+      <section className="grid-cell section-label">
         <div className="label-content">
           <h2>CASE {label}</h2>
         </div>
