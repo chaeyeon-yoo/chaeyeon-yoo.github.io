@@ -564,7 +564,6 @@ body {
 }
 
 .code-block {
-  position: relative; /* 복사 버튼 위치 기준 */
   background-color: var(--text-main);
   color: #F4F1EA;
   font-family: monospace;
@@ -575,35 +574,6 @@ body {
   overflow-x: auto;
   white-space: pre;
   margin: 0;
-}
-
-.copy-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  padding: 4px 10px;
-  font-family: monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #F4F1EA;
-  background-color: rgba(244, 241, 234, 0.1);
-  border: 1px solid rgba(244, 241, 234, 0.3);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.copy-btn:hover {
-  background-color: rgba(244, 241, 234, 0.2);
-  border-color: rgba(244, 241, 234, 0.5);
-}
-
-.copy-btn.is-copied {
-  background-color: var(--accent-neon);
-  border-color: var(--accent-neon);
-  color: #000000;
 }
 
 /* @@@ 반응형 @@@ */

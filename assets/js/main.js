@@ -38,31 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. 코드블록 복사 버튼
+  // 3. 코드블록: 가로 스크롤이 생기는 영역이므로 키보드로도 스크롤할 수 있어야 한다
   document.querySelectorAll('.code-block').forEach((block) => {
-    // 가로 스크롤이 생기는 영역이므로 키보드로도 스크롤할 수 있어야 한다
     block.setAttribute('tabindex', '0');
-
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'copy-btn';
-    btn.textContent = 'Copy';
-    btn.setAttribute('aria-label', '코드 복사');
-    block.appendChild(btn);
-
-    btn.addEventListener('click', () => {
-      const code = block.querySelector('code');
-      const text = (code || block).textContent;
-
-      navigator.clipboard.writeText(text).then(() => {
-        btn.textContent = 'Copied!';
-        btn.classList.add('is-copied');
-
-        setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('is-copied');
-        }, 1500);
-      });
-    });
   });
 });
