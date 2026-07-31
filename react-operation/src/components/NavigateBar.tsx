@@ -14,7 +14,7 @@ export function NavigateBar() {
           <span aria-hidden="true">← INDEX</span>
         </a>
         <a href="/a11y.html" className="menu-item" aria-label="이전 케이스로 이동">
-          <span aria-hidden="true">PREV CASE →</span>
+          <span aria-hidden="true">← PREV CASE</span>
         </a>
       </div>
     </nav>

@@ -5,6 +5,7 @@ export interface CaseItem {
   techTags: string[];
   desc: string;
   code?: string;
+  codeCaption?: string;
 }
 
 export const cases: CaseItem[] = [
@@ -18,6 +19,7 @@ export const cases: CaseItem[] = [
     ],
     techTags: ['HTML/CSS', 'JavaScript', 'Lottie'],
     desc: '마스킹 정책이 변경되면서 인증 UI 전반의 개선이 필요했고, 그 일환으로 로그인 상태에 따른 GNB 버튼 노출 조건을 재정의했습니다. localStorage로 재생 여부를 관리해 재방문 시 마지막 프레임을 바로 노출하도록 구현했으며, 로그인 상태 분기 처리와 애니메이션 타이밍 제어를 함께 다뤘습니다.',
+    codeCaption: 'Lottie 애니메이션 1회 재생 제어 예시 코드',
     code: `// default : 애니메이션 자동 재생 X
 const params = {
   container: document.getElementById("lottie_container"),
@@ -48,6 +50,7 @@ if (!localStorage.getItem("hasPlayedMotion")) {
     ],
     techTags: ['HTML/CSS', 'JavaScript', '모바일'],
     desc: '기존 컴포넌트를 재활용하고 신규 컴포넌트를 추가하며 처음부터 접근성을 고려한 마크업 작업을 진행했습니다. 폼 에러 텍스트는 기존 코드베이스 전반이 aria-hidden 토글 방식으로 구현되어 있어, 일관성을 위해 동일한 패턴을 따랐습니다.',
+    codeCaption: '탭 UI, 폼 에러 텍스트, 팝업 버튼 연결 예시 코드',
     code: `<!-- 1. 탭 UI -->
 <ul role="tablist" class="tab-accessibility">
   <li role="presentation">

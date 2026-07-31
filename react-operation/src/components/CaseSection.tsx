@@ -37,7 +37,9 @@ export function CaseSection({ data, index }: { data: CaseItem; index: number }) 
 
         <p className="case-desc">{data.desc}</p>
 
-        {data.code && <CodeBlock code={data.code} />}
+        {data.code && (
+          <CodeBlock code={data.code} caption={data.codeCaption ?? '예시 코드'} />
+        )}
       </div>
       <div className="grid-cell empty-cell" />
     </>

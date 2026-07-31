@@ -11,7 +11,7 @@
   background-color: var(--bg-color);
   padding: 50px 40px;
   overflow-wrap: break-word; /* 긴 단어가 박스를 넘어가면 강제 줄바꿈 */
-  word-break: keep-all;      /* 필요 시 단어 중간에서도 줄바꿈 */
+  word-break: keep-all;      /* 한국어 등 CJK 텍스트가 어절 중간에서 끊기지 않게 유지 */
   min-width: 0; /* pre.code-block 등 긴 콘텐츠가 grid 트랙을 강제로 넓히는 것 방지 */
 }
 
