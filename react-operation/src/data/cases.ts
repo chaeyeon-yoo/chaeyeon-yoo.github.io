@@ -12,13 +12,13 @@ export const cases: CaseItem[] = [
   {
     tag: '마스킹 정책 변경 대응',
     titleAriaLabel:
-      'GNB 버튼이 로그인 상태에 따라 조건부 노출되며, 최초 방문 시 Lottie 애니메이션을 1회 재생합니다.',
+      '마스킹 정책 변경에 맞춰 인증 UI를 새로 작업하고, 로그인 상태 분기와 애니메이션 재생 조건을 제어했습니다.',
     titleLines: [
-      'GNB 버튼이 로그인 상태에 따라 조건부 노출되며,',
-      '최초 방문 시 Lottie 애니메이션을 1회 재생합니다.',
+      '마스킹 정책 변경에 맞춰 인증 UI를 새로 작업하고,',
+      '로그인 상태 분기와 애니메이션 재생 조건을 제어했습니다.',
     ],
     techTags: ['HTML/CSS', 'JavaScript', 'Lottie'],
-    desc: '마스킹 정책이 변경되면서 인증 UI 전반의 개선이 필요했고, 그 일환으로 로그인 상태에 따른 GNB 버튼 노출 조건을 재정의했습니다. localStorage로 재생 여부를 관리해 재방문 시 마지막 프레임을 바로 노출하도록 구현했으며, 로그인 상태 분기 처리와 애니메이션 타이밍 제어를 함께 다뤘습니다.',
+    desc: '개인정보 마스킹 정책이 변경되면서 인증 화면 전반을 새로 작업했습니다. 기획·디자인 시안에 맞춰 변경된 인증 UI를 퍼블리싱하고, 로그인 상태에 따라 GNB 버튼이 조건부로 노출되도록 재정의했습니다. 아래 코드는 그중 진입 화면의 애니메이션 제어 부분으로, localStorage로 재생 여부를 관리해 재방문 시 마지막 프레임을 바로 노출하도록 구현했습니다.',
     codeCaption: 'Lottie 애니메이션 1회 재생 제어 예시 코드',
     code: `// default : 애니메이션 자동 재생 X
 const params = {
@@ -36,17 +36,17 @@ if (!localStorage.getItem("hasPlayedMotion")) {
   localStorage.setItem("hasPlayedMotion", "true");
 } else {
   anim.addEventListener("DOMLoaded", function() {
-    anim.goToAndStop(anim.totalFrames, true);
+    anim.goToAndStop(anim.totalFrames - 1, true);
   });
 }`,
   },
   {
     tag: '선물하기 서비스 개편 (모바일)',
     titleAriaLabel:
-      '서비스 전면 개편으로 마크업 구조를 새로 설계하고, 약 20개 페이지를 담당했습니다.',
+      '서비스 전면 개편으로 반복 UI를 컴포넌트 단위로 정리하고, 약 20페이지의 마크업을 담당했습니다.',
     titleLines: [
-      '서비스 전면 개편으로 마크업 구조를 새로 설계하고,',
-      '약 20개 페이지를 담당했습니다.',
+      '서비스 전면 개편으로 반복 UI를 컴포넌트 단위로 정리하고,',
+      '약 20페이지의 마크업을 담당했습니다.',
     ],
     techTags: ['HTML/CSS', 'JavaScript', '모바일'],
     desc: '기존 컴포넌트를 재활용하고 신규 컴포넌트를 추가하며 처음부터 접근성을 고려한 마크업 작업을 진행했습니다. 폼 에러 텍스트는 기존 코드베이스 전반이 aria-hidden 토글 방식으로 구현되어 있어, 일관성을 위해 동일한 패턴을 따랐습니다.',
