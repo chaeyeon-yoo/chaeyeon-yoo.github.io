@@ -72,6 +72,11 @@ table {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent-neon);
+  outline: 2px solid var(--accent-neon-text);
   outline-offset: 2px;
+}
+
+/* 어두운 배경 위에서는 밝은 쪽이 대비가 높다 (3.05:1 → 9.93:1) */
+.code-block:focus-visible {
+  outline-color: var(--accent-neon);
 }

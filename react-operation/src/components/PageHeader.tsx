@@ -2,7 +2,7 @@ export function PageHeader() {
   return (
     <>
       <header className="grid-cell logo-area">
-        <a href="/operation.html" className="back-link" aria-label="정적 버전(operation.html)으로 돌아가기">
+        <a href="/operation.html" className="back-link" aria-label="STATIC VERSION, 정적 버전(operation.html)으로 돌아가기">
           <span aria-hidden="true">←</span> STATIC VERSION
         </a>
       </header>
