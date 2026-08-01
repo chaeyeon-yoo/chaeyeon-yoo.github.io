@@ -54,12 +54,14 @@ if (!localStorage.getItem("hasPlayedMotion")) {
     code: `<!-- 1. 탭 UI -->
 <ul role="tablist" class="tab-accessibility">
   <li role="presentation">
-    <a role="tab" aria-selected="true"
-       aria-controls="tab1-tab" id="tab1">바로선물</a>
+    <a href="javascript:void(0);" role="tab"
+       aria-selected="true" aria-controls="tab1-tab"
+       id="tab1">T 끼리 바로선물</a>
   </li>
   <li role="presentation">
-    <a role="tab" aria-selected="false"
-       aria-controls="tab2-tab" id="tab2">가족끼리 자동선물</a>
+    <a href="javascript:void(0);" role="tab"
+       aria-selected="false" aria-controls="tab2-tab"
+       id="tab2">가족끼리 자동선물</a>
   </li>
 </ul>
 
