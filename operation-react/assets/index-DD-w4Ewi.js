@@ -27,12 +27,14 @@ if (!localStorage.getItem("hasPlayedMotion")) {
 }`},{tag:`선물하기 서비스 개편 (모바일)`,titleAriaLabel:`서비스 전면 개편으로 마크업 구조를 새로 설계하고, 약 20개 페이지를 담당했습니다.`,titleLines:[`서비스 전면 개편으로 마크업 구조를 새로 설계하고,`,`약 20개 페이지를 담당했습니다.`],techTags:[`HTML/CSS`,`JavaScript`,`모바일`],desc:`기존 컴포넌트를 재활용하고 신규 컴포넌트를 추가하며 처음부터 접근성을 고려한 마크업 작업을 진행했습니다. 폼 에러 텍스트는 기존 코드베이스 전반이 aria-hidden 토글 방식으로 구현되어 있어, 일관성을 위해 동일한 패턴을 따랐습니다.`,codeCaption:`탭 UI, 폼 에러 텍스트, 팝업 버튼 연결 예시 코드`,code:`<!-- 1. 탭 UI -->
 <ul role="tablist" class="tab-accessibility">
   <li role="presentation">
-    <a role="tab" aria-selected="true"
-       aria-controls="tab1-tab" id="tab1">바로선물</a>
+    <a href="javascript:void(0);" role="tab"
+       aria-selected="true" aria-controls="tab1-tab"
+       id="tab1">T 끼리 바로선물</a>
   </li>
   <li role="presentation">
-    <a role="tab" aria-selected="false"
-       aria-controls="tab2-tab" id="tab2">가족끼리 자동선물</a>
+    <a href="javascript:void(0);" role="tab"
+       aria-selected="false" aria-controls="tab2-tab"
+       id="tab2">가족끼리 자동선물</a>
   </li>
 </ul>
 
